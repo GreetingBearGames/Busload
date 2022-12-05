@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 0034f34d9f13b41bc9746e6d25721a96
+<<<<<<<< HEAD:Assets/Models/otobus3.fbx.meta
+guid: cc85dca3edcd87946af7d80ffb4f8b4f
+========
+guid: 1faa9f9de8eb34073acf9e00cca735a3
+>>>>>>>> cevo:Assets/Models/NoParking.fbx.meta
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
