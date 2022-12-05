@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CarController1 : MonoBehaviour
 {
-    [SerializeField] private float fwdSpeed, horizontalSpeedFactor, inputSensitivity;
-    [SerializeField] private float rollRotSpeed, rollTurnSpeed;
+    [SerializeField] private float fwdSpeed = 30f, horizontalSpeedFactor = 5f, inputSensitivity = 20f, lerpValue = 0.5f;
+    [SerializeField] private float rollRotSpeed = 5f, rollTurnSpeed = 15f;
     [SerializeField] private GameObject floorObject;
     [SerializeField] private GameObject finishline;
     private Touch touch;
@@ -66,8 +66,8 @@ public class CarController1 : MonoBehaviour
         float newPositionDifference = newPositionTarget - transform.position.x;
 
         newPositionDifference = Mathf.Clamp(newPositionDifference, -horizontalSpeed, horizontalSpeed);
-
-        transform.position = new Vector3(transform.position.x + newPositionDifference, transform.position.y, transform.position.z + fwdSpeed * Time.deltaTime);
+        Vector3 desiredPos = new Vector3(transform.position.x + newPositionDifference, transform.position.y, transform.position.z + fwdSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, desiredPos, lerpValue);
     }
 
 
@@ -77,12 +77,12 @@ public class CarController1 : MonoBehaviour
 
         if (transform.position.x - lastPosition.x > 0.005)  //sağa yatıyor
         {
-            var desiredRotQ = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -15);
+            var desiredRotQ = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -10);
             transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotQ, Time.deltaTime * rollRotSpeed);
         }
         else if (transform.position.x - lastPosition.x < -0.005)  //sola yatıyor
         {
-            var desiredRotQ = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 15);
+            var desiredRotQ = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 10);
             transform.rotation = Quaternion.Lerp(transform.rotation, desiredRotQ, Time.deltaTime * rollRotSpeed);
         }
         if (Mathf.Abs(transform.position.x - lastPosition.x) < 0.003)  //uçak roll hareketini topluyor
