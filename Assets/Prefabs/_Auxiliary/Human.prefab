@@ -858,6 +858,8 @@ GameObject:
   - component: {fileID: 7057210047271055151}
   - component: {fileID: 7384362254978578724}
   - component: {fileID: 1937909705460957539}
+  - component: {fileID: 4739710322521606594}
+  - component: {fileID: 3152337903709994217}
   m_Layer: 6
   m_Name: Human
   m_TagString: Untagged
@@ -914,7 +916,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd01d4ec386834a2490179969cb00d07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+--- !u!114 &4739710322521606594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691004161132393877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4b0a024e9564434bb8f2ec712f8375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 10
+--- !u!65 &3152337903709994217
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691004161132393877}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.47273174, y: 1.705845, z: 0.8411008}
+  m_Center: {x: -0.0038378686, y: 0.87, z: -0.04837677}
 --- !u!1 &8341767903389230207
 GameObject:
   m_ObjectHideFlags: 0

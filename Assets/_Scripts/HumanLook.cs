@@ -8,17 +8,13 @@ public class HumanLook : MonoBehaviour
 
     private void Start()
     {
-        _target = GameObject.FindWithTag("Player").gameObject;
+        _target = GameObject.FindWithTag("Bus").gameObject;
+        //InvokeRepeating("RotateTowardsBus", 0.2f, 0.05f);
     }
 
-    void Update()
-    {
-        StartCoroutine("RotateTowardsBus");
-    }
 
-    IEnumerator RotateTowardsBus()
+    private void RotateTowardsBus()
     {
-        yield return new WaitForSeconds(0.5f);
         transform.LookAt(_target.transform);
     }
 }
