@@ -5,12 +5,19 @@ using UnityEngine;
 public class BusController : MonoBehaviour {
     [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed;
     [SerializeField] private GameObject groundObj;
-    private Vector3 horizontalMove;
-    private Touch touch;
-    private float deltaPosX, groundBoundsX, busBoundsX;
+    [SerializeField] private BusProps busProps = null;
+    private float _deltaPosX, _groundBoundsX, _busBoundsX;
+    private Vector3 _horizontalMove;
+    private Touch _touch;
     private void Start() {
-        groundBoundsX = groundObj.GetComponent<Renderer>().bounds.size.x;
-        busBoundsX = GetComponent<Renderer>().bounds.size.x;
+        _groundBoundsX = groundObj.GetComponent<Renderer>().bounds.size.x;
+        _busBoundsX = GetComponent<Renderer>().bounds.size.x;
+        forwardSpeed = busProps.forwardSpeed;
+        touchThreshold = busProps.touchThreshold;
+        horizontalSpeed = busProps.horizontalSpeed;
+        horizontalMoveMultiplier = busProps.horizontalMoveMultiplier;
+        rotateSpeed = busProps.rotateSpeed;
+        rotateBackToSpeed = busProps.rotateBackToSpeed;
     }
     private void FixedUpdate() {
         MoveForward();
@@ -21,33 +28,33 @@ public class BusController : MonoBehaviour {
     }
     private void MoveLeftAndRight() {
         if (Input.touchCount > 0) {
-            touch = Input.GetTouch(0);
-            switch (touch.phase) {
+            _touch = Input.GetTouch(0);
+            switch (_touch.phase) {
                 case TouchPhase.Began:
                     break;
                 case TouchPhase.Moved:
-                    deltaPosX = touch.deltaPosition.x;
-                    if (deltaPosX > touchThreshold) {     //Move to right
-                        horizontalMove = new Vector3(transform.position.x + deltaPosX * horizontalMoveMultiplier, transform.position.y, transform.position.z);
-                        transform.position = Vector3.Lerp(transform.position, horizontalMove, horizontalSpeed * Time.deltaTime);
+                    _deltaPosX = _touch.deltaPosition.x;
+                    if (_deltaPosX > touchThreshold) {     //Move to right
+                        _horizontalMove = new Vector3(transform.position.x + _deltaPosX * horizontalMoveMultiplier, transform.position.y, transform.position.z);
+                        transform.position = Vector3.Lerp(transform.position, _horizontalMove, horizontalSpeed);
                         var limitX = transform.position;
-                        limitX.x = Mathf.Clamp(transform.position.x, -groundBoundsX / 2 + busBoundsX / 2, groundBoundsX / 2 - busBoundsX / 2);
+                        limitX.x = Mathf.Clamp(transform.position.x, -_groundBoundsX / 2 + _busBoundsX / 2, _groundBoundsX / 2 - _busBoundsX / 2);
                         transform.position = limitX;
-                        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -20), Time.deltaTime * rotateSpeed);
-                    } else if (deltaPosX < -touchThreshold) {
-                        horizontalMove = new Vector3(transform.position.x + deltaPosX * horizontalMoveMultiplier, transform.position.y, transform.position.z);
-                        transform.position = Vector3.Lerp(transform.position, horizontalMove, horizontalSpeed * Time.deltaTime);
+                        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -20), rotateSpeed);
+                    } else if (_deltaPosX < -touchThreshold) {
+                        _horizontalMove = new Vector3(transform.position.x + _deltaPosX * horizontalMoveMultiplier, transform.position.y, transform.position.z);
+                        transform.position = Vector3.Lerp(transform.position, _horizontalMove, horizontalSpeed);
                         var limitX = transform.position;
-                        limitX.x = Mathf.Clamp(transform.position.x, -groundBoundsX / 2 + busBoundsX / 2, groundBoundsX / 2 - busBoundsX / 2);
+                        limitX.x = Mathf.Clamp(transform.position.x, -_groundBoundsX / 2 + _busBoundsX / 2, _groundBoundsX / 2 - _busBoundsX / 2);
                         transform.position = limitX;
-                        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 20), Time.deltaTime * rotateSpeed);
+                        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 20), rotateSpeed);
                     }
                     break;
                 case TouchPhase.Ended:
                     break;
             }
         } else {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0), Time.deltaTime * rotateBackToSpeed);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0),rotateBackToSpeed);
         }
     }
 }

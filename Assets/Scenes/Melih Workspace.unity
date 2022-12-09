@@ -510,7 +510,7 @@ Transform:
   m_GameObject: {fileID: 829786509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 153}
-  m_LocalScale: {x: 1, y: 1, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1000}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -631,6 +631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followObj: {fileID: 2090447110048722839}
+  _lerpTime: 1
 --- !u!114 &1521734499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,6 +1287,7 @@ MonoBehaviour:
   rotateSpeed: 2.5
   rotateBackToSpeed: 5
   groundObj: {fileID: 829786509}
+  busProps: {fileID: 11400000, guid: 87ae6efdcbb7f40468ed555ba81e7692, type: 2}
 --- !u!4 &2458373143734608719
 Transform:
   m_ObjectHideFlags: 0
