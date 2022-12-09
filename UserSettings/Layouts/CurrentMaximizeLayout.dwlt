@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 1016
+  controlID: 12168
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -45,23 +45,21 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 806.5
+    x: 806
     y: 83
-    width: 293
+    width: 293.5
     height: 493.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
-  m_SerializedViewNames:
-  - UnityEditor.GameView
-  m_SerializedViewValues:
-  - /Users/cevhertekdal/Desktop/UnityProjeler/G_BusLoad/Library/PlayModeViewStates/482b4988ee373474689638b7562c406c
+  m_SerializedViewNames: []
+  m_SerializedViewValues: []
   m_PlayModeViewName: Device Simulator
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 1}
-  m_TargetSize: {x: 1536, y: 2048}
+  m_TargetSize: {x: 1200, y: 2640}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -77,11 +75,11 @@ MonoBehaviour:
     - UnityEditor.DeviceSimulation.ApplicationSettingsPlugin
     pluginStates:
     - '{}'
-    scale: 16
+    scale: 17
     fitToScreenEnabled: 1
     rotationDegree: 0
     highlightSafeAreaEnabled: 0
-    friendlyName: Apple iPad (5th gen)
+    friendlyName: Huawei P40 Pro
     networkReachability: 1
     systemLanguage: 10
 --- !u!114 &3
@@ -108,7 +106,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 1017
+  controlID: 12169
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -134,7 +132,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 1018
+  controlID: 12170
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -192,23 +190,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 686b0000
-      m_LastClickedID: 27496
-      m_ExpandedIDs: 18fbffff386b0000
+      m_SelectedIDs: 32f10000
+      m_LastClickedID: 61746
+      m_ExpandedIDs: 8ad8f7ff14e4f7ff02ecf7ffe4f1f7ff66f3f7ff9821f8ffca4ff8fffa7ef8ff2cadf8ff38ddf8ff680bf9ff9e39f9ff1068f9ff4696f9ffbec4f9fff4f2f9ff5021faff864ffaffb67dfaff44acfaff74dafaffaa08fbffda36fbff5865fbff8893fbffbec1fbffeeeffbff6c1efcff9c4cfcffd27afcff02a9fcff64d7fcff9405fdffca33fdfffa61fdff7890fdffeabefdff4cedfdff7c1bfeff324afeff5e78feff0aa7feff36d5feff6803ffff9431ffffc65fffffee8dffff1ccaffffe8faffffb66b0000367a000082f0000032f10000cef10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Bus
+        m_OriginalName: Bus
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 61746
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -235,7 +233,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 216.5
     y: 0
-    width: 590
+    width: 589.5
     height: 514.5
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -266,7 +264,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 216.5
     y: 83
-    width: 588
+    width: 587.5
     height: 493.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -364,7 +362,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 1
+      displayed: 0
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -493,7 +491,7 @@ MonoBehaviour:
       index: 12
       layout: 4
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
-  m_Gizmos: 0
+  m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -502,9 +500,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.34726024, y: -2.1576953, z: 10.104848}
+    m_Target: {x: 0.0039277673, y: 1.0364573, z: 285.93494}
     speed: 2
-    m_Value: {x: -0.34726024, y: -2.1576953, z: 10.104848}
+    m_Value: {x: 0.32074738, y: 0.3658795, z: 48.569878}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -551,13 +549,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.34045264, y: 0.0014095186, z: -0.00050990516, w: 0.9402622}
+    m_Target: {x: 0.3119115, y: -0.5414489, z: 0.22598922, w: 0.74731046}
     speed: 2
-    m_Value: {x: 0.3404521, y: 0.0014095164, z: -0.00050990435, w: 0.94026077}
+    m_Value: {x: 0.31191152, y: -0.54144895, z: 0.22598925, w: 0.7473105}
   m_Size:
-    m_Target: 8.465134
+    m_Target: 337.94635
     speed: 2
-    m_Value: 8.465134
+    m_Value: 337.69308
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -597,9 +595,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 806.5
+    x: 806
     y: 0
-    width: 295
+    width: 295.5
     height: 514.5
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -618,7 +616,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -627,14 +625,14 @@ MonoBehaviour:
     y: 514.5
     width: 1101.5
     height: 208.5
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 11}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 11}
   - {fileID: 12}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -676,22 +674,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/temp
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Models/temp
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/cevhertekdal/Desktop/UnityProjeler/G_BusLoad
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: d8780000
-    m_LastClickedID: 30936
-    m_ExpandedIDs: 00000000b6760000b8760000ba760000bc760000be760000c0760000c2760000c4760000c6760000c8760000ca760000cc760000ce7600007e780000
+    m_SelectedIDs: 06790000
+    m_LastClickedID: 30982
+    m_ExpandedIDs: 0000000040770000427700004477000046770000487700004a7700004c7700004e7700005077000052770000547700005677000058770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -719,7 +717,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b6760000b8760000ba760000bc760000be760000c0760000c2760000c4760000c6760000c8760000ca760000cc760000ce760000
+    m_ExpandedIDs: 0000000040770000427700004477000046770000487700004a7700004c7700004e7700005077000052770000547700005677000058770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -744,8 +742,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 686b0000
-    m_LastClickedInstanceID: 27496
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -763,7 +761,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 0}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -796,9 +794,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 588
-    width: 1174.2
-    height: 187.39996
+    y: 597.5
+    width: 1100.5
+    height: 187.5
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -864,7 +862,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 88.20001
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
