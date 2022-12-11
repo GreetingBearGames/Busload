@@ -15,6 +15,6 @@ MonoBehaviour:
   forwardSpeed: 20
   touchThreshold: 0.05
   horizontalSpeed: 0.25
-  horizontalMoveMultiplier: 0.07
+  horizontalMoveMultiplier: 35
   rotateSpeed: 0.1
   rotateBackToSpeed: 0.15
