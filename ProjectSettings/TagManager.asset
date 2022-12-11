@@ -7,6 +7,7 @@ TagManager:
   - Bus
   - BusGetOn
   - Human
+  - PassengerCount
   layers:
   - Default
   - TransparentFX
