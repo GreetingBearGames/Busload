@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BusController : MonoBehaviour {
-    [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed;
+    [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed, passengerCount;
     [SerializeField] private GameObject groundObj;
     [SerializeField] private BusProps busProps = null;
-    private float _deltaPosX, _groundBoundsX, _busBoundsX;
+    public float ForwardSpeed{
+        get => forwardSpeed;
+    }
+    private float _deltaPosX, _groundBoundsX, _busBoundsX, _maxForwardSpeed;
+    private bool _isWinBus = true, _isEnd = true;
     private Vector3 _horizontalMove;
     private Touch _touch;
     private void Start() {
@@ -22,6 +26,8 @@ public class BusController : MonoBehaviour {
     private void Update() {
         MoveForward();
         MoveLeftAndRight();
+        WinLevel();
+        LoseLevel();
     }
     private void MoveForward() {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, forwardSpeed * Time.deltaTime);
@@ -50,11 +56,50 @@ public class BusController : MonoBehaviour {
                         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 20), rotateSpeed);
                     }
                     break;
-                case TouchPhase.Ended:
+                case TouchPhase.Stationary:
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0), rotateBackToSpeed);
                     break;
             }
-        } else {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0),rotateBackToSpeed);
+            
+        }
+    }
+    private void WinLevel() {
+        if (GameManager.Instance.isWin()) {
+            touchThreshold = 0;
+            horizontalSpeed = 0;
+            horizontalMoveMultiplier = 0;
+            rotateSpeed = 0;
+            rotateBackToSpeed = 0;
+            transform.eulerAngles = new Vector3(0,0,0);
+            if(_isWinBus){
+                _isWinBus = false;
+                forwardSpeed = GameManager.Instance.Passenger;
+                _maxForwardSpeed = forwardSpeed;
+                GameManager.Instance.UpdateMoney(10);
+                Debug.Log("Finish Line Money : " + GameManager.Instance.Money);
+            }
+            forwardSpeed = Mathf.Clamp(forwardSpeed + -12.5f * Time.deltaTime, 0, _maxForwardSpeed);
+        }
+        if(forwardSpeed <= 0 && _isEnd && !GameManager.Instance.IsLose){
+            _isEnd = false;
+            GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.Money - GameManager.Instance.Money);
+            StartCoroutine(NextLevel(1.0f));
+        }
+    }
+    private IEnumerator NextLevel(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameManager.Instance.LoadNextLevel();
+    }
+    private void LoseLevel(){
+        if(GameManager.Instance.IsLose){
+            touchThreshold = 0;
+            horizontalSpeed = 0;
+            horizontalMoveMultiplier = 0;
+            rotateSpeed = 0;
+            rotateBackToSpeed = 0;
+            forwardSpeed = 0;
+            transform.eulerAngles = new Vector3(0,0,0);
         }
     }
 }
