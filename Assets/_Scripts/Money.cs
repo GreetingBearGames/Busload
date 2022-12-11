@@ -29,6 +29,7 @@ public class Money : MonoBehaviour
             Explode();
             _moneyCount.text = (int.Parse(_moneyCount.text) + incomeRatio).ToString();
             //incomeRatio ne kadar fazlaysa her para aldığında daha fazla para kazanmış olur.
+            GameManager.Instance.UpdateMoney((int)(int.Parse(_moneyCount.text) + incomeRatio));
             Destroy(this.gameObject);
         }
     }
