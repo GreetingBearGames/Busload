@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3462775853215046241}
   - component: {fileID: 1432549882344537623}
+  - component: {fileID: 2863676628207884020}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -131,11 +132,25 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4270979139703308507}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5.1497865, y: 1.9027474, z: 2.129128}
   m_Center: {x: -0.0031594876, y: -0.6863798, z: 0.008409669}
+--- !u!114 &2863676628207884020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270979139703308507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9729d50fd7e3c44449bfadd08136dc37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyTakeParticle: {fileID: 5146113068194687542, guid: c85237cdd07b5425389565876a4fb4b3, type: 3}
+  incomeRatio: 1
 --- !u!1 &4325877573269688302
 GameObject:
   m_ObjectHideFlags: 0
