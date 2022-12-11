@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class HumanMove : MonoBehaviour
 {
-    private GameObject _target;
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private TextMeshProUGUI _passengerCount;
+    private GameObject _target;
     private Vector3 _targetPos;
     [HideInInspector] public bool isMoving = false;
 
     void Start()
     {
         _target = GameObject.FindWithTag("Bus").gameObject;
-
+        _passengerCount = GameObject.FindWithTag("PassengerCount").gameObject.GetComponent<TextMeshProUGUI>();
     }
+
 
     void Update()
     {
@@ -22,6 +26,7 @@ public class HumanMove : MonoBehaviour
             MoveHumantoBus();
         }
     }
+
 
     public void MoveHumantoBus()
     {
@@ -34,8 +39,8 @@ public class HumanMove : MonoBehaviour
     {
         if (other.gameObject.tag == "Bus")
         {
+            _passengerCount.text = (int.Parse(_passengerCount.text) + 1).ToString();
             Destroy(this.gameObject);
-            //OTOBÜSÜN ÜZERİNDEKİ SAYIYI ARTTIR
         }
     }
 }
