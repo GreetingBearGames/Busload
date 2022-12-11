@@ -7,7 +7,7 @@ using TMPro;
 public class HumanMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private TextMeshProUGUI _passengerCount;
+    [SerializeField] private TextMeshProUGUI _passengerCount = null;
     private GameObject _target;
     private Vector3 _targetPos;
     [HideInInspector] public bool isMoving = false;
