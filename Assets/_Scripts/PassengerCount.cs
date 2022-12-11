@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class PassengerCount : MonoBehaviour
 {
-    [SerializeField] private BusProps busProps;
-    private float _forwardSpeed;
     [SerializeField] GameObject _bus;
-    [SerializeField] follow follow;
-    Vector3 Offset = Vector3.zero;
+    private float _screenWidth;
 
-    void Start()
+    private void Start()
     {
-        Offset = transform.position - follow.worldToUISpace(this.GetComponent<Canvas>(), _bus.transform.position);
-        _forwardSpeed = busProps.forwardSpeed;
+        _screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
     }
 
-    void Update()
+    private void LateUpdate()
     {
-        Debug.Log(follow.worldToUISpace(this.GetComponent<Canvas>(), _bus.transform.position));
-        transform.position = follow.worldToUISpace(this.GetComponent<Canvas>(), _bus.transform.position) + Offset;
+        transform.position = new Vector3(Mathf.Clamp(_bus.transform.position.x, -_screenWidth, _screenWidth),
+                                        transform.position.y,
+                                        _bus.transform.position.z);
     }
-
-
-
 }
+

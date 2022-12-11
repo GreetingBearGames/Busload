@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 129322194}
   - component: {fileID: 129322197}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: AboveBus_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -916,7 +916,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129322192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.15}
+  m_LocalPosition: {x: 0, y: 0, z: 1.980207}
   m_LocalScale: {x: 0.0048000007, y: 0.0048, z: 0.0048}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1002,9 +1002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329a431c2ffd84d95a9eb95d4d043e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  busProps: {fileID: 11400000, guid: 87ae6efdcbb7f40468ed555ba81e7692, type: 2}
   _bus: {fileID: 917816666}
-  follow: {fileID: 1134375991}
 --- !u!1 &154390754
 GameObject:
   m_ObjectHideFlags: 0
@@ -5357,8 +5355,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1635582995}
   m_LocalRotation: {x: 0.3907311, y: 0, z: 0, w: 0.9205049}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalPosition: {x: 0, y: 0, z: 196}
+  m_LocalScale: {x: 1.83, y: 1.83, z: 1.83}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 129322193}
@@ -5366,8 +5364,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 46, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 943.29}
-  m_SizeDelta: {x: 290, y: 170.20001}
+  m_AnchoredPosition: {x: 0, y: 712}
+  m_SizeDelta: {x: 246.93, y: 170.20001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1635582997
 MonoBehaviour:
