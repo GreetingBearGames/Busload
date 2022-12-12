@@ -9,6 +9,7 @@ TagManager:
   - Human
   - PassengerCount
   - MoneyCount
+  - FinishMultiplier
   layers:
   - Default
   - TransparentFX

@@ -6269,6 +6269,10 @@ PrefabInstance:
       value: Bus
       objectReference: {fileID: 0}
     - target: {fileID: 2804478264626840959, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
+      propertyPath: deneme
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 2804478264626840959, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
       propertyPath: groundObj
       value: 
       objectReference: {fileID: 866791037}

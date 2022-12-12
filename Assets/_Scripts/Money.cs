@@ -18,7 +18,7 @@ public class Money : MonoBehaviour
 
     void Update()
     {
-
+        _moneyCount.text = ((int)GameManager.Instance.Money).ToString();
     }
 
 
@@ -27,9 +27,8 @@ public class Money : MonoBehaviour
         if (other.gameObject.tag == "Bus")
         {
             Explode();
-            _moneyCount.text = (int.Parse(_moneyCount.text) + incomeRatio).ToString();
-            //incomeRatio ne kadar fazlaysa her para aldığında daha fazla para kazanmış olur.
-            GameManager.Instance.UpdateMoney((int)(int.Parse(_moneyCount.text) + incomeRatio));
+            GameManager.Instance.UpdateMoney(GameManager.Instance.MoneyIncreaseRate);
+            _moneyCount.text = ((int)GameManager.Instance.Money).ToString();
             Destroy(this.gameObject);
         }
     }

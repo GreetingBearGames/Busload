@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 5649638296066721595}
   - component: {fileID: 7603056183897814001}
   - component: {fileID: 3298154109353872902}
+  - component: {fileID: 1155169634210786143}
   m_Layer: 0
   m_Name: Duba
   m_TagString: Untagged
@@ -265,3 +266,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.4866045, y: 2.2641873, z: 1.7320509}
   m_Center: {x: -0.0015254319, y: 1.0653422, z: 0}
+--- !u!114 &1155169634210786143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251587519120888356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2753a5f8bdc356043bbc85e16390d737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busProps: {fileID: 11400000, guid: 87ae6efdcbb7f40468ed555ba81e7692, type: 2}

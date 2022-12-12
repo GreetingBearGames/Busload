@@ -7,7 +7,7 @@ using TMPro;
 public class HumanMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
-    [SerializeField] private TextMeshProUGUI _passengerCount = null;
+    private TextMeshProUGUI _passengerCount = null;
     private GameObject _target;
     private Vector3 _targetPos;
     [HideInInspector] public bool isMoving = false;
@@ -25,6 +25,7 @@ public class HumanMove : MonoBehaviour
         {
             MoveHumantoBus();
         }
+        _passengerCount.text = ((int)GameManager.Instance.Passenger).ToString();
     }
 
 
@@ -39,7 +40,8 @@ public class HumanMove : MonoBehaviour
     {
         if (other.gameObject.tag == "Bus")
         {
-            _passengerCount.text = (int.Parse(_passengerCount.text) + 1).ToString();
+            GameManager.Instance.UpdatePassengerCount(GameManager.Instance.PassengerIncreaseRate);
+            _passengerCount.text = ((int)GameManager.Instance.Passenger).ToString();
             Destroy(this.gameObject);
         }
     }

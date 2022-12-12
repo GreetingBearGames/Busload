@@ -176,6 +176,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1461965859701604760}
   - component: {fileID: 2819239765478467686}
+  - component: {fileID: 7505320760668441339}
   m_Layer: 0
   m_Name: NoParking
   m_TagString: Untagged
@@ -190,7 +191,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2234386403640417058}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -7.34, y: -0.4057647, z: -3.1761894}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
@@ -214,6 +215,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.99999964, y: 7.176507, z: 4.525211}
   m_Center: {x: 0, y: 3.4469428, z: 0.051581927}
+--- !u!114 &7505320760668441339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234386403640417058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2753a5f8bdc356043bbc85e16390d737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busProps: {fileID: 11400000, guid: 87ae6efdcbb7f40468ed555ba81e7692, type: 2}
 --- !u!1 &6583289900015909027
 GameObject:
   m_ObjectHideFlags: 0
