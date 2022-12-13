@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private int _health, _totalHealth, _finishMultiplier;
     private float _passenger, _passengerIncreaseRate = 1, _money, _moneyIncreaseRate = 1;
     private static GameManager _instance;   //Create instance and make it static to be sure that only one instance exist in scene.
-    private bool _isGameOver = false, _isWin = false, _isLose = false;
+    private bool _isGameOver = false, _isWin = false, _isLose = false, _isGameStarted = false;
     public static GameManager Instance
     {     //To access GameManager, we use GameManager.Instance
         get
@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
         set => _finishMultiplier = value;
     }
     public bool IsLose => _isLose;
+    public bool IsGameStarted{
+        get => _isGameStarted;
+        set => _isGameStarted = value;
+    }
 
     public int Health
     {       //Health property. You can get health from outside this script, but you can only set in this script.
@@ -53,12 +57,12 @@ public class GameManager : MonoBehaviour
     public float PassengerIncreaseRate
     {       //Passenger property. You can get passenger from outside this script, but you can only set in this script.
         get => _passengerIncreaseRate;
-        private set => _passengerIncreaseRate = value;
+        set => _passengerIncreaseRate = value;
     }
     public float MoneyIncreaseRate
     {       //Passenger property. You can get passenger from outside this script, but you can only set in this script.
         get => _moneyIncreaseRate;
-        private set => _moneyIncreaseRate = value;
+        set => _moneyIncreaseRate = value;
     }
     private void Awake()
     {

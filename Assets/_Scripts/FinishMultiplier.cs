@@ -9,7 +9,7 @@ public class FinishMultiplier : MonoBehaviour
         if (other.tag == "Bus")
         {
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
-            //gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
 }

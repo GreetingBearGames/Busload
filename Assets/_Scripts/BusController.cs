@@ -34,6 +34,7 @@ public class BusController : MonoBehaviour
     }
     private void MoveForward()
     {
+        GameManager.Instance.IsGameStarted = true;
         transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, forwardSpeed * Time.deltaTime);
     }
     private void MoveLeftAndRight()
