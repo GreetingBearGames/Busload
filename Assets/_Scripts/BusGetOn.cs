@@ -13,9 +13,6 @@ public class BusGetOn : MonoBehaviour
         _target = GameObject.FindWithTag("Bus").gameObject;
         _parentObj = this.transform.parent.gameObject.transform;
         _humanMoveScripts = _parentObj.GetComponentsInChildren<HumanMove>();
-
-
-
     }
 
     void Update()
