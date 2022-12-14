@@ -38,6 +38,11 @@ public class HumanMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "BusCrashArea")
+        {
+            Destroy(this.gameObject);
+        }
+
         if (other.gameObject.tag == "Bus")
         {
             GameManager.Instance.UpdatePassengerCount(GameManager.Instance.PassengerIncreaseRate);

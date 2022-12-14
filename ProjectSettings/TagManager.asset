@@ -10,6 +10,8 @@ TagManager:
   - PassengerCount
   - MoneyCount
   - FinishMultiplier
+  - HumanWaitArea
+  - BusCrashArea
   layers:
   - Default
   - TransparentFX
