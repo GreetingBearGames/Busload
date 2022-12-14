@@ -305,7 +305,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69923674}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -1305,6 +1305,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6689960764095508498, guid: 3fb9f759024d24ba38363af1c7881882, type: 3}
   m_PrefabInstance: {fileID: 187038300}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &197880409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 197880410}
+  - component: {fileID: 197880411}
+  m_Layer: 0
+  m_Name: Money Multiplier Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &197880410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197880409}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 295842285}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &197880411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197880409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724cc0e3045ba4dd389a565e1d81cb74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moneyToUIPrefab: {fileID: 5928653553777436432, guid: aaf33eb6982fe4f1abf6599ad44df027, type: 3}
+  _showDuration: 3
 --- !u!1001 &219794021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1831,6 +1877,7 @@ Transform:
   m_Children:
   - {fileID: 1682401620}
   - {fileID: 1119222411}
+  - {fileID: 197880410}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6135,6 +6182,10 @@ PrefabInstance:
       propertyPath: groundObj
       value: 
       objectReference: {fileID: 866791037}
+    - target: {fileID: 2804478264626840959, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
+      propertyPath: forwardSpeed
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
 --- !u!4 &1147175883 stripped
