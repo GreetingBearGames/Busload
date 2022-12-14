@@ -9765,6 +9765,7 @@ GameObject:
   - component: {fileID: 2804478264626840957}
   - component: {fileID: 76408733557846455}
   - component: {fileID: 2804478264626840959}
+  - component: {fileID: 3658107508971717158}
   - component: {fileID: 2804478264626840958}
   - component: {fileID: 787801718918676234}
   m_Layer: 0
@@ -9877,6 +9878,18 @@ MonoBehaviour:
   rotateBackToSpeed: 5
   groundObj: {fileID: 0}
   busProps: {fileID: 11400000, guid: 87ae6efdcbb7f40468ed555ba81e7692, type: 2}
+--- !u!114 &3658107508971717158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877870368821891170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab00c01bd28e504cbe3e7b141e0327d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &2804478264626840958
 BoxCollider:
   m_ObjectHideFlags: 0
