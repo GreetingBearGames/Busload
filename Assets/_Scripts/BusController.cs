@@ -46,8 +46,6 @@ public class BusController : MonoBehaviour
             _touch = Input.GetTouch(0);
             switch (_touch.phase)
             {
-                case TouchPhase.Began:
-                    break;
                 case TouchPhase.Moved:
                     _deltaPosX = _touch.deltaPosition.x;
                     if (_deltaPosX > touchThreshold)
@@ -68,13 +66,10 @@ public class BusController : MonoBehaviour
                         transform.position = limitX;
                         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 25), rotateSpeed);
                     }
-                    break;
-                case TouchPhase.Stationary:
-                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0), rotateBackToSpeed);
-                    break;
+                break;
             }
-
         }
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0), rotateBackToSpeed);
     }
     private void WinLevel()
     {
@@ -95,9 +90,9 @@ public class BusController : MonoBehaviour
             GameManager.Instance.FinishMultiplier = (int)decreaseRate;
 
             forwardSpeed = 0;
-            transform.position = Vector3.Lerp(transform.position, targetPos, 0.005f);
+            transform.position = Vector3.Lerp(transform.position, targetPos, 0.01f);
 
-            if (_isContinue && Mathf.Abs(transform.position.z - targetPos.z) < 0.1f)
+            if (_isContinue && Mathf.Abs(transform.position.z - targetPos.z) < 0.05f)
             {
                 _isEnd = true;
                 _isContinue = false;
@@ -114,7 +109,7 @@ public class BusController : MonoBehaviour
     private IEnumerator NextLevel(float time)
     {
         yield return new WaitForSeconds(time);
-        GameManager.Instance.WinLevel(true);
+        GameManager.Instance.NextLevel();
     }
     private void LoseLevel()
     {
