@@ -34,8 +34,10 @@ public class BusController : MonoBehaviour
     }
     private void MoveForward()
     {
-        GameManager.Instance.IsGameStarted = true;
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, forwardSpeed * Time.deltaTime);
+        if (GameManager.Instance.IsGameStarted)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + transform.forward, forwardSpeed * Time.deltaTime);
+        }
     }
     private void MoveLeftAndRight()
     {
@@ -126,5 +128,10 @@ public class BusController : MonoBehaviour
             forwardSpeed = 0;
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
+    }
+
+    public void StartBus()
+    {
+        GameManager.Instance.IsGameStarted = true;
     }
 }

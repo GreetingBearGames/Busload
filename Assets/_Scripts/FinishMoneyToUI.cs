@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FinishMoneyToUI : MonoBehaviour
 {
     private GameObject _moneyUI;
     [SerializeField] private float _speed;
     private Vector3 _screenPoint, _targetPos;
+    private bool isMoneyAdded = false;
 
 
     void Start()
@@ -27,6 +29,11 @@ public class FinishMoneyToUI : MonoBehaviour
 
         if ((transform.position - _targetPos).magnitude < 0.25f)
         {
+            if (isMoneyAdded == false)
+            {
+                AddMoneytoWallet();
+            }
+
             Destroy(this.GetComponent<SpriteRenderer>());
             var explosionParticle = this.gameObject.transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
             explosionParticle.gameObject.SetActive(true);
@@ -35,5 +42,12 @@ public class FinishMoneyToUI : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    private void AddMoneytoWallet()
+    {
+        GameManager.Instance.UpdateMoney(GameManager.Instance.MoneyIncreaseRate);
+        _moneyUI.GetComponent<TextMeshProUGUI>().text = ((int)GameManager.Instance.Money).ToString();
+        isMoneyAdded = true;
     }
 }
