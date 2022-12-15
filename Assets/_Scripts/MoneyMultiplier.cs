@@ -11,7 +11,6 @@ public class MoneyMultiplier : MonoBehaviour
     void Start()
     {
         _creationPos = GameObject.FindWithTag("Bus").gameObject.transform.position;
-        CreateMoney(30);
     }
 
     void Update()
