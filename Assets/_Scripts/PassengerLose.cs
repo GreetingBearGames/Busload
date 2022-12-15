@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PassengerLose : MonoBehaviour {
     [SerializeField] private GameObject passenger;
-    public List<GameObject> _passengers;
+    private List<GameObject> _passengers;
     public bool isThrow = false;
     public int passangerToThrow = 0;
-    private float _busBoundsZ, _powerOfThrow = 10.0f, _radius = 5.0f, _upforce = 5.0f;
+    private float _busBoundsZ, _powerOfThrow = 30.0f, _radius = 5.0f, _upforce = 5.0f;
 
     private void Start() {
         _busBoundsZ = GetComponent<BoxCollider>().bounds.size.z;
@@ -21,6 +21,7 @@ public class PassengerLose : MonoBehaviour {
     private void FixedUpdate() {
         if (isThrow) {
             isThrow = false;
+            SoundManager.instance.Play("Drop Passenger");
             InstantiateAndThrowPassengers(passangerToThrow);
             Detonate();
         }

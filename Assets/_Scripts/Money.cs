@@ -27,6 +27,7 @@ public class Money : MonoBehaviour
         if (other.gameObject.tag == "Bus")
         {
             Explode();
+            SoundManager.instance.Play("MoneyCollect");
             GameManager.Instance.UpdateMoney(GameManager.Instance.MoneyIncreaseRate);
             _moneyCount.text = ((int)GameManager.Instance.Money).ToString();
             Destroy(this.gameObject);

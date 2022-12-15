@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Canvas gameOverCanvas;
-    [SerializeField] private AudioSource inGameMusic;
     private int _health, _totalHealth, _finishMultiplier;
     private float _passenger, _passengerIncreaseRate = 1, _money, _moneyIncreaseRate = 1;
     private static GameManager _instance;   //Create instance and make it static to be sure that only one instance exist in scene.
@@ -68,11 +67,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
     }
-    private void Start()
-    {
-        inGameMusic.loop = true;            //Make inGameMusic loop
-        inGameMusic.Play();                 //Plays inGameMusic
-    }
+
     public void GameOver(bool flag)
     {    //Sets the game over situation. 
         _isGameOver = flag;             //Ex. usage GameManager.Instance.Gameover(true) inside of obstacle script.
@@ -100,6 +95,8 @@ public class GameManager : MonoBehaviour
     public void WinLevel(bool flag)
     {       //Call this function when player finish the level successfully inside of finishline.
         _isWin = flag;
+        SoundManager.instance.Play("Game Win Money Collect");
+        LoadNextLevel();
     }
     public bool isWin()
     {                    //To check is the game successfully finished.
@@ -108,6 +105,7 @@ public class GameManager : MonoBehaviour
     public void LoseLevel()
     {               //Call this when player can't finish the game successfully.
         gameOverCanvas.gameObject.SetActive(true);
+        SoundManager.instance.Play("Game Over");
         _isLose = true;
     }
     public void UpdateBusHealth(int updateAmount)

@@ -112,7 +112,7 @@ public class BusController : MonoBehaviour
     private IEnumerator NextLevel(float time)
     {
         yield return new WaitForSeconds(time);
-        GameManager.Instance.LoadNextLevel();
+        GameManager.Instance.WinLevel(true);
     }
     private void LoseLevel()
     {

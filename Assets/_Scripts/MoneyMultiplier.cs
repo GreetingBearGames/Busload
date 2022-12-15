@@ -29,6 +29,7 @@ public class MoneyMultiplier : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Instantiate(_moneyToUIPrefab, _creationPos, Quaternion.Euler(40f, 0f, 0f));
+            SoundManager.instance.Play("MoneyCollect");
             yield return new WaitForSeconds(_showDuration / count);
         }
     }
