@@ -860,7 +860,7 @@ GameObject:
   - component: {fileID: 5801317038817143389}
   m_Layer: 0
   m_Name: HumanForExplode
-  m_TagString: Human
+  m_TagString: DiedHuman
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

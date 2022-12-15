@@ -16,7 +16,6 @@ public class FinishMoneyToUI : MonoBehaviour
         transform.position = new Vector3(startPos.x + Random.Range(-1f, 1f), startPos.y + Random.Range(-1f, 1f), startPos.z + Random.Range(-1f, 1f));
 
         _moneyUI = GameObject.FindWithTag("MoneyCount").gameObject;
-        Debug.Log(_moneyUI);
         _screenPoint = _moneyUI.transform.position + new Vector3(-200, 0, 5);  //the "+ new Vector3(0,0,5)" ensures that the object is so close to the camera you dont see it
         _targetPos = Camera.main.ScreenToWorldPoint(_screenPoint);
     }

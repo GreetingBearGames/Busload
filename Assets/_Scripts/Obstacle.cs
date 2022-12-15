@@ -9,7 +9,7 @@ public class Obstacle : MonoBehaviour
     public PassengerLose passengerLose;
 
     private void Start() {
-        passengerLose = GameObject.FindWithTag("Bus").GetComponent<PassengerLose>();
+        passengerLose = GameObject.FindGameObjectWithTag("Bus").GetComponent<PassengerLose>();
     }
     private void OnTriggerEnter(Collider other)
     {

@@ -12,6 +12,7 @@ TagManager:
   - FinishMultiplier
   - HumanWaitArea
   - BusCrashArea
+  - DiedHuman
   layers:
   - Default
   - TransparentFX
