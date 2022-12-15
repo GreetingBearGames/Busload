@@ -9765,8 +9765,8 @@ GameObject:
   - component: {fileID: 2804478264626840957}
   - component: {fileID: 76408733557846455}
   - component: {fileID: 2804478264626840959}
+  - component: {fileID: 3658107508971717158}
   - component: {fileID: 2804478264626840958}
-  - component: {fileID: 787801718918676234}
   m_Layer: 0
   m_Name: Bus
   m_TagString: Bus
@@ -9877,6 +9877,21 @@ MonoBehaviour:
   rotateBackToSpeed: 5
   groundObj: {fileID: 0}
   busProps: {fileID: 11400000, guid: 87ae6efdcbb7f40468ed555ba81e7692, type: 2}
+--- !u!114 &3658107508971717158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877870368821891170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aab00c01bd28e504cbe3e7b141e0327d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passenger: {fileID: 0}
+  isThrow: 0
+  passangerToThrow: 0
 --- !u!65 &2804478264626840958
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9890,22 +9905,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.24023, y: 3.6557686, z: 8.369228}
   m_Center: {x: -0.016438963, y: 0.1389624, z: -0.26435432}
---- !u!54 &787801718918676234
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877870368821891170}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1982984128999427202
 GameObject:
   m_ObjectHideFlags: 0

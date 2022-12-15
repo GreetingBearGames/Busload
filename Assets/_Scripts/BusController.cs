@@ -24,6 +24,7 @@ public class BusController : MonoBehaviour
         rotateSpeed = busProps.rotateSpeed;
         rotateBackToSpeed = busProps.rotateBackToSpeed;
         _humanCountinScene = GameObject.FindGameObjectsWithTag("Human").Length;
+        GameManager.Instance.UpdatePassengerCount(50);
     }
     private void Update()
     {
