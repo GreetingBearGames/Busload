@@ -40,6 +40,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6689960764095508498}
     m_Modifications:
+    - target: {fileID: 4393548115532807872, guid: 7b546cef0671f4285bb4eb20e194a718, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d280661a74d214445bb94d8dc92f7972, type: 2}
     - target: {fileID: 5821987870861703994, guid: 7b546cef0671f4285bb4eb20e194a718, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -84,10 +88,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6592309089695990676, guid: 7b546cef0671f4285bb4eb20e194a718, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d280661a74d214445bb94d8dc92f7972, type: 2}
     - target: {fileID: 6593282721318461824, guid: 7b546cef0671f4285bb4eb20e194a718, type: 3}
       propertyPath: m_Name
       value: Electric Pole
       objectReference: {fileID: 0}
+    - target: {fileID: 7512322994155555358, guid: 7b546cef0671f4285bb4eb20e194a718, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d280661a74d214445bb94d8dc92f7972, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b546cef0671f4285bb4eb20e194a718, type: 3}
 --- !u!4 &3516656133982603200 stripped
@@ -102,6 +114,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6689960764095508498}
     m_Modifications:
+    - target: {fileID: 4981662430398863701, guid: 496ba0e71ee3641e0855929453429987, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10e0dd49b7fa64f69b90f6688ada873e, type: 2}
     - target: {fileID: 6154528751327289914, guid: 496ba0e71ee3641e0855929453429987, type: 3}
       propertyPath: m_RootOrder
       value: 1
