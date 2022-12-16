@@ -13,6 +13,8 @@ TagManager:
   - HumanWaitArea
   - BusCrashArea
   - DiedHuman
+  - FinishLine
+  - Chassis
   layers:
   - Default
   - TransparentFX
