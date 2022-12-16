@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 [System.Serializable]
-public class Sound {
+public class Sound
+{
     public string name;
 
     public AudioClip clip;
@@ -18,4 +19,5 @@ public class Sound {
     public bool isLoop;
     public bool hasCooldown;
     public AudioSource source;
+    public bool playOnAwake;
 }

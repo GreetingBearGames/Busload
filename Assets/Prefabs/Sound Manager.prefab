@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131878766199952642}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,42 +48,48 @@ MonoBehaviour:
   - name: In Game Music
     clip: {fileID: 8300000, guid: 68b0bac3ae7bbe342a6320e39baba3e4, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     isLoop: 1
     hasCooldown: 0
     source: {fileID: 0}
+    playOnAwake: 1
   - name: MoneyCollect
     clip: {fileID: 8300000, guid: 04ffd612923d123498c1e708e16060a3, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     isLoop: 0
     hasCooldown: 0
     source: {fileID: 0}
+    playOnAwake: 0
   - name: Game Over
     clip: {fileID: 8300000, guid: e113e94c0424a814ea189bef980de0a9, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     isLoop: 0
     hasCooldown: 0
     source: {fileID: 0}
+    playOnAwake: 0
   - name: Game Win Money Collect
     clip: {fileID: 8300000, guid: b2fefb3698ef87741ae80087278969c5, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     isLoop: 0
     hasCooldown: 0
     source: {fileID: 0}
+    playOnAwake: 0
   - name: Take Passenger
     clip: {fileID: 8300000, guid: a958331ee18fa0c4ba394a052699c733, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     isLoop: 0
     hasCooldown: 0
     source: {fileID: 0}
+    playOnAwake: 0
   - name: Drop Passenger
     clip: {fileID: 8300000, guid: 671ab123e082642489dd39a23c187661, type: 3}
     volume: 1
-    pitch: 0
+    pitch: 1
     isLoop: 0
     hasCooldown: 0
     source: {fileID: 0}
+    playOnAwake: 0
