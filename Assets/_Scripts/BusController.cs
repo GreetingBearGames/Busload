@@ -115,7 +115,7 @@ public class BusController : MonoBehaviour
         {
             _isEnd = false;
             GameManager.Instance.EndLevel();
-            moneyMultiplierManager.CreateMoney(GameManager.Instance.Money);
+            moneyMultiplierManager.CreateMoney(GameManager.Instance.Passenger);
             //GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.Money - GameManager.Instance.Money);
             StartCoroutine(NextLevel(moneyMultiplierManager._showDuration + 2f));
         }

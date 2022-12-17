@@ -7,9 +7,11 @@ using TMPro;
 public class FinishMoneyToUI : MonoBehaviour
 {
     private GameObject _moneyUI;
+    private GameObject _passengerCountUI;
     [SerializeField] private float _speed;
     private Vector3 _screenPoint, _targetPos;
     private bool isMoneyAdded = false;
+
 
 
     void Start()
@@ -18,8 +20,14 @@ public class FinishMoneyToUI : MonoBehaviour
         transform.position = new Vector3(startPos.x + Random.Range(-1f, 1f), startPos.y + Random.Range(-1f, 1f), startPos.z + Random.Range(-1f, 1f));
 
         _moneyUI = GameObject.FindWithTag("MoneyCount").gameObject;
+        _passengerCountUI = GameObject.FindWithTag("PassengerCount");
         _screenPoint = _moneyUI.transform.position + new Vector3(-200, 0, 5);  //the "+ new Vector3(0,0,5)" ensures that the object is so close to the camera you dont see it
         _targetPos = Camera.main.ScreenToWorldPoint(_screenPoint);
+
+        //finish hediye para prefabı doğduğu an yolcu sayısını düşür
+        GameManager.Instance.UpdatePassengerCount(-1);
+        _passengerCountUI.GetComponent<TextMeshProUGUI>().text = ((int)GameManager.Instance.Passenger).ToString();
+
     }
 
 
@@ -47,8 +55,9 @@ public class FinishMoneyToUI : MonoBehaviour
 
     private void AddMoneytoWallet()
     {
-        GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.MoneyIncreaseRate - GameManager.Instance.Money);
+        GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier);
         _moneyUI.GetComponent<TextMeshProUGUI>().text = ((int)GameManager.Instance.Money).ToString();
+
         isMoneyAdded = true;
     }
 }
