@@ -20,6 +20,7 @@ public class MoneyMultiplier : MonoBehaviour
 
     public void CreateMoney(float count)
     {
+        SoundManager.instance.Play("Game Win Money Collect");
         StartCoroutine(Wait(count));
     }
 

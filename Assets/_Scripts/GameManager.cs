@@ -95,12 +95,13 @@ public class GameManager : MonoBehaviour
     public void WinLevel(bool flag)
     {       //Call this function when player finish the level successfully inside of finishline.
         _isWin = flag;
-        SoundManager.instance.Play("Game Win Money Collect");
-        LoadNextLevel();
     }
     public bool isWin()
     {                    //To check is the game successfully finished.
         return _isWin;
+    }
+    public void NextLevel(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void LoseLevel()
     {               //Call this when player can't finish the game successfully.
