@@ -88,7 +88,7 @@ public class BusController : MonoBehaviour {
                 _isFinish = true;
             }
             Vector3 velocity = Vector3.zero;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.05f, 300);
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.05f, 100);
             if (_isContinue && Mathf.Abs(transform.position.z - targetPos.z) < 0.2f) {
                 _isEnd = true;
                 _isContinue = false;
