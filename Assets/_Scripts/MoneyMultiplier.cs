@@ -5,13 +5,12 @@ using UnityEngine;
 public class MoneyMultiplier : MonoBehaviour
 {
     [SerializeField] private GameObject _moneyToUIPrefab;
-    [SerializeField] private int _showDuration;
+    public int _showDuration;
     private Vector3 _creationPos;
 
     void Start()
     {
-        _creationPos = GameObject.FindWithTag("Bus").gameObject.transform.position;
-        GameManager.Instance.UpdateMoney(500f);
+
     }
 
     void Update()
@@ -21,16 +20,15 @@ public class MoneyMultiplier : MonoBehaviour
 
     public void CreateMoney(float count)
     {
-        SoundManager.instance.Play("Game Win Money Collect");
         StartCoroutine(Wait(count));
     }
 
     IEnumerator Wait(float count)
     {
+        _creationPos = GameObject.FindWithTag("Bus").gameObject.transform.position;
         for (int i = 0; i < count; i++)
         {
             Instantiate(_moneyToUIPrefab, _creationPos, Quaternion.Euler(40f, 0f, 0f));
-            SoundManager.instance.Play("MoneyCollect");
             yield return new WaitForSeconds(_showDuration / count);
         }
     }

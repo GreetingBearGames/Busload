@@ -31,6 +31,7 @@ public class FinishMoneyToUI : MonoBehaviour
         {
             if (isMoneyAdded == false)
             {
+                SoundManager.instance.Play("MoneyCollect");
                 AddMoneytoWallet();
             }
 
@@ -46,7 +47,7 @@ public class FinishMoneyToUI : MonoBehaviour
 
     private void AddMoneytoWallet()
     {
-        GameManager.Instance.UpdateMoney(GameManager.Instance.MoneyIncreaseRate);
+        GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.MoneyIncreaseRate - GameManager.Instance.Money);
         _moneyUI.GetComponent<TextMeshProUGUI>().text = ((int)GameManager.Instance.Money).ToString();
         isMoneyAdded = true;
     }

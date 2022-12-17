@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
         set => _finishMultiplier = value;
     }
     public bool IsLose => _isLose;
-    public bool IsGameStarted{
+    public bool IsGameStarted
+    {
         get => _isGameStarted;
         set => _isGameStarted = value;
     }
@@ -95,12 +96,19 @@ public class GameManager : MonoBehaviour
     public void WinLevel(bool flag)
     {       //Call this function when player finish the level successfully inside of finishline.
         _isWin = flag;
+        SoundManager.instance.Play("LevelWin Sound");
     }
     public bool isWin()
     {                    //To check is the game successfully finished.
         return _isWin;
     }
-    public void NextLevel(){
+    public void EndLevel()
+    {
+        SoundManager.instance.Stop("LevelWin Sound");
+        SoundManager.instance.Play("Game Win Money Collect");
+    }
+    public void NextLevel()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void LoseLevel()
