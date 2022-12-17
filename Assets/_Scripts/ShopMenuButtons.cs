@@ -3,50 +3,67 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class ShopMenuButtons : MonoBehaviour {
+public class ShopMenuButtons : MonoBehaviour
+{
     public Button passengerButton, incomeButton;
     public TextMeshProUGUI IncomeLvText, PassengerLvText, IncomeBuyValueText, PassengerBuyValueText;
     public int incomeBuyValue, passengerBuyValue, incomeLv, passengerLv;
-    [SerializeField] private AudioSource buttonSound;
-    private void Start() {
+
+    private void Start()
+    {
         incomeBuyValue = 20;
         passengerBuyValue = 20;
+        IncomeLvText.text = "0";
+        PassengerLvText.text = "0";
     }
-    private void Update() {
-        if (!GameManager.Instance.IsGameStarted) {
+    private void Update()
+    {
+        if (!GameManager.Instance.IsGameStarted)
+        {
             passengerButton.gameObject.SetActive(true);
             incomeButton.gameObject.SetActive(true);
-        } else {
+        }
+        else
+        {
             passengerButton.gameObject.SetActive(false);
             incomeButton.gameObject.SetActive(false);
         }
-        if (GameManager.Instance.Money < incomeBuyValue) {
+        if (GameManager.Instance.Money < incomeBuyValue)
+        {
             incomeButton.interactable = false;
         }
-        if (GameManager.Instance.Money < passengerBuyValue) {
+        if (GameManager.Instance.Money < passengerBuyValue)
+        {
             passengerButton.interactable = false;
         }
-        if (GameManager.Instance.Money > incomeBuyValue) {
+        if (GameManager.Instance.Money > incomeBuyValue)
+        {
             incomeButton.interactable = true;
         }
-        if (GameManager.Instance.Money > passengerBuyValue) {
+        if (GameManager.Instance.Money > passengerBuyValue)
+        {
             passengerButton.interactable = true;
         }
     }
 
-    public void IncomeUpgrade() {
+    public void IncomeUpgrade()
+    {
         GameManager.Instance.UpdateMoney(-incomeBuyValue);
         incomeLv++;
         incomeBuyValue *= incomeLv;
         GameManager.Instance.MoneyIncreaseRate *= 1.25f;
-        buttonSound.Play();
+        IncomeLvText.text = (int.Parse(IncomeLvText.text) + 1).ToString();
+        SoundManager.instance.Play("Button Sound");
+
     }
 
-    public void PassengerUpgrade() {
+    public void PassengerUpgrade()
+    {
         GameManager.Instance.UpdateMoney(-passengerBuyValue);
         passengerLv++;
         passengerBuyValue *= passengerLv;
         GameManager.Instance.PassengerIncreaseRate *= 1.25f;
-        buttonSound.Play();
+        PassengerLvText.text = (int.Parse(PassengerLvText.text) + 1).ToString();
+        SoundManager.instance.Play("Button Sound");
     }
 }

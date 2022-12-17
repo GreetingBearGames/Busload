@@ -93,3 +93,19 @@ MonoBehaviour:
     hasCooldown: 0
     source: {fileID: 0}
     playOnAwake: 0
+  - name: Button Sound
+    clip: {fileID: 8300000, guid: 88493c91122304152b73a77f98733341, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+    playOnAwake: 0
+  - name: LevelWin Sound
+    clip: {fileID: 8300000, guid: d3a57351185c04b9c9f7d7241918894f, type: 3}
+    volume: 1
+    pitch: 1
+    isLoop: 0
+    hasCooldown: 0
+    source: {fileID: 0}
+    playOnAwake: 0
