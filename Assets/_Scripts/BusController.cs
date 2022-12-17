@@ -7,11 +7,11 @@ public class BusController : MonoBehaviour {
     [SerializeField] private GameObject groundObj, finishLine;
     [SerializeField] private BusProps busProps = null;
 
-    private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene, f = 0, _busBoundsZ;
+    private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene, f = 0, _busBoundsZ, startTime;
     private bool _isEnd = false, _isContinue = true, _isFinish = false;
     private Vector3 _horizontalMove, afterFinishMove, startPos;
     private Touch _touch;
-    private int frames = 0, maxFrames = 180;
+    private int frames = 5, maxFrames = 180;
     public AnimationCurve curve;
 
     private void Start() {
@@ -28,6 +28,7 @@ public class BusController : MonoBehaviour {
         rotateBackToSpeed = busProps.rotateBackToSpeed;
         _humanCountinScene = GameObject.FindGameObjectsWithTag("Human").Length;
         finishLine = GameObject.FindGameObjectWithTag("FinishLine");
+        startTime = Time.time;
     }
     private void Update() {
         MoveForward();
@@ -86,12 +87,11 @@ public class BusController : MonoBehaviour {
                 startPos = transform.position;
                 _isFinish = true;
             }
-            var coroutine = FinishMove(startPos, targetPos);
-            StartCoroutine(coroutine);
-            if (_isContinue && transform.position.z == targetPos.z) {
+            Vector3 velocity = Vector3.zero;
+            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.10f, 200);
+            if (_isContinue && Mathf.Abs(transform.position.z - targetPos.z) < 0.2f) {
                 _isEnd = true;
                 _isContinue = false;
-                //StopCoroutine(coroutine);
             }
 
         }
@@ -119,18 +119,5 @@ public class BusController : MonoBehaviour {
 
     public void StartBus() {
         GameManager.Instance.IsGameStarted = true;
-    }
-    private IEnumerator FinishMove(Vector3 StartPos, Vector3 EndPos) {
-        //timer += Time.deltaTime;
-        //transform.position = Vector3.Lerp(StartPos, EndPos, );
-        //Debug.Log("Transform Pos : " + transform.position);
-        float duration = 500;
-        float speed = 1 / duration;
-        while (f < 1) {
-            transform.position = Vector3.Lerp(StartPos, EndPos, curve.Evaluate(f));
-            Debug.Log(transform.position);
-            f += Time.deltaTime * speed;
-            yield return 0;
-        }
     }
 }
