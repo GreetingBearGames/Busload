@@ -5,14 +5,18 @@ using UnityEngine;
 public class BusController : MonoBehaviour {
     [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed;
     [SerializeField] private GameObject groundObj, finishLine;
+    private GameObject[] finishMultiplier;
     [SerializeField] private BusProps busProps = null;
 
-    private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene, f = 0, _busBoundsZ, startTime;
+    private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene, f = 0, _busBoundsZ, _currentLerpTime, _totalLerpTime;
     private bool _isEnd = false, _isContinue = true, _isFinish = false;
     private Vector3 _horizontalMove, afterFinishMove, startPos;
     private Touch _touch;
-    private int frames = 5, maxFrames = 180;
+    private float startTime = 0, journeyLength;
     public AnimationCurve curve;
+    private void Awake() {
+        var finishMultiplier = GameObject.FindGameObjectsWithTag("FinishMultiplier");
+    }
 
     private void Start() {
         var chassis = GameObject.FindGameObjectWithTag("Chassis");
@@ -29,6 +33,7 @@ public class BusController : MonoBehaviour {
         _humanCountinScene = GameObject.FindGameObjectsWithTag("Human").Length;
         finishLine = GameObject.FindGameObjectWithTag("FinishLine");
         startTime = Time.time;
+        _totalLerpTime = 1.0f;
     }
     private void Update() {
         MoveForward();
@@ -79,16 +84,24 @@ public class BusController : MonoBehaviour {
             var decreaseRate = GameManager.Instance.Passenger / (_humanCountinScene * GameManager.Instance.PassengerIncreaseRate);
             decreaseRate *= 20;
             if (decreaseRate == 0) decreaseRate = 1;
-            var targetPos = GameObject.FindGameObjectsWithTag("FinishMultiplier")[(int)decreaseRate - 1].transform.position;
+            var targetPos = finishMultiplier[(int)decreaseRate - 1].transform.position;
             targetPos = new Vector3(targetPos.x, transform.position.y, targetPos.z);
             GameManager.Instance.FinishMultiplier = (int)decreaseRate;
             forwardSpeed = 0;
-            if(!_isFinish){
+            if (!_isFinish) {
+                startTime = Time.time;
                 startPos = transform.position;
                 _isFinish = true;
+                journeyLength = Vector3.Distance(startPos, targetPos);
             }
-            Vector3 velocity = Vector3.zero;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.05f, 100);
+            float distCovered = (Time.time - startTime) * 50f;
+            // Fraction of journey completed equals current distance divided by total distance.
+            float fractionOfJourney = distCovered / journeyLength;
+
+            // Set our position as a fraction of the distance between the markers.
+            Debug.Log("Start : " + startPos + " target : " + targetPos);
+            transform.position = Vector3.Lerp(startPos, targetPos, fractionOfJourney);
+            //transform.position = Vector3.Lerp(startPos, targetPos, 0.5f);
             if (_isContinue && Mathf.Abs(transform.position.z - targetPos.z) < 0.2f) {
                 _isEnd = true;
                 _isContinue = false;
@@ -119,5 +132,9 @@ public class BusController : MonoBehaviour {
 
     public void StartBus() {
         GameManager.Instance.IsGameStarted = true;
+    }
+    private float SmoothStop(float t) {
+        float time = 1 - (1 - t * t * t * t * t);
+        return time;
     }
 }
