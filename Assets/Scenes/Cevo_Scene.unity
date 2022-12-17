@@ -1777,7 +1777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moneyToUIPrefab: {fileID: 5928653553777436432, guid: aaf33eb6982fe4f1abf6599ad44df027, type: 3}
-  _showDuration: 3
+  _showDuration: 2
 --- !u!1001 &219794021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4520,6 +4520,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 131878766199952643, guid: f8d73d025a725264ab4ec3befadbf219, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131878766199952644, guid: f8d73d025a725264ab4ec3befadbf219, type: 3}
+      propertyPath: sounds.Array.data[0].volume
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7882,10 +7886,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bus
       objectReference: {fileID: 0}
+    - target: {fileID: 1877870368821891170, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2804478264626840959, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
       propertyPath: groundObj
       value: 
       objectReference: {fileID: 866791037}
+    - target: {fileID: 2804478264626840959, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
+      propertyPath: moneyMultiplier
+      value: 
+      objectReference: {fileID: 197880411}
+    - target: {fileID: 2804478264626840959, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
+      propertyPath: moneyMultiplierManager
+      value: 
+      objectReference: {fileID: 197880411}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 006606866b458ba4e9bb5aad8b44b641, type: 3}
 --- !u!4 &1147175883 stripped
@@ -8311,10 +8327,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   passengerButton: {fileID: 426088397}
   incomeButton: {fileID: 507090289}
-  IncomeLvText: {fileID: 0}
-  PassengerLvText: {fileID: 0}
-  IncomeBuyValueText: {fileID: 0}
-  PassengerBuyValueText: {fileID: 0}
+  IncomeLvText: {fileID: 152177214}
+  PassengerLvText: {fileID: 717719142}
+  IncomeBuyValueText: {fileID: 1090639387}
+  PassengerBuyValueText: {fileID: 9813337}
   incomeBuyValue: 0
   passengerBuyValue: 0
   incomeLv: 0
