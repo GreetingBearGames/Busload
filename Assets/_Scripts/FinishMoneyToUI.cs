@@ -55,7 +55,7 @@ public class FinishMoneyToUI : MonoBehaviour
 
     private void AddMoneytoWallet()
     {
-        GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier);
+        GameManager.Instance.UpdateMoney(GameManager.Instance.Money * GameManager.Instance.FinishMultiplier - GameManager.Instance.Money);
         _moneyUI.GetComponent<TextMeshProUGUI>().text = ((int)GameManager.Instance.Money).ToString();
 
         isMoneyAdded = true;

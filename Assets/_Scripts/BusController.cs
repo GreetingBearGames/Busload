@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class BusController : MonoBehaviour {
+public class BusController : MonoBehaviour
+{
     [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed, finishSpeed;
     [SerializeField] private GameObject groundObj;
     [SerializeField] private BusProps busProps = null;
+    [SerializeField] private MoneyMultiplier moneyMultiplierManager;
     private List<GameObject> finishMultiplier;
     private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene;
-    private bool _isEnd = false, _isContinue = true, _isFinish = false;
+    private bool _isEnd = false, _isContinue = true, _isFinish = false, _isStop = false;
     private Vector3 _horizontalMove, startPos;
     private Touch _touch;
 
-    private void Start() {
+
+    private void Start()
+    {
         var finishMultiplierArr = GameObject.FindGameObjectsWithTag("FinishMultiplier");
         finishMultiplier = finishMultiplierArr.ToList().OrderBy(x => x.transform.position.z).ToList();
         var chassis = GameObject.FindGameObjectWithTag("Chassis");
@@ -87,35 +91,47 @@ public class BusController : MonoBehaviour {
 
             var decreaseRate = GameManager.Instance.Passenger / (_humanCountinScene * GameManager.Instance.PassengerIncreaseRate);
             decreaseRate *= 20;
-            if (decreaseRate == 0) decreaseRate = 1;
+            if (decreaseRate <= 0) decreaseRate = 1;
 
             var targetPos = finishMultiplier[(int)decreaseRate - 1].transform.position;
             targetPos = new Vector3(targetPos.x, transform.position.y, targetPos.z);
             GameManager.Instance.FinishMultiplier = (int)decreaseRate;
             forwardSpeed = 0;
-            if (!_isFinish) {
+            if (!_isFinish)
+            {
                 startPos = transform.position;
                 _isFinish = true;
             }
-            StartCoroutine(ChangeObjectZandXPos(transform, targetPos.z, targetPos.x, decreaseRate / finishSpeed));
-            if (_isContinue && transform.position.z == targetPos.z) {
+            if (!_isStop)
+            {
+                StartCoroutine(ChangeObjectZandXPos(transform, targetPos.z, targetPos.x, decreaseRate / finishSpeed));
+            }
+            if (_isContinue && transform.position.z == targetPos.z)
+            {
                 _isEnd = true;
                 _isContinue = false;
+                _isStop = true;
             }
 
         }
-        if (_isEnd && !GameManager.Instance.IsLose) {
+        if (_isEnd && !GameManager.Instance.IsLose)
+        {
             _isEnd = false;
-            GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.Money - GameManager.Instance.Money);
-            StartCoroutine(NextLevel(3.0f));
+            GameManager.Instance.EndLevel();
+            moneyMultiplierManager.CreateMoney(GameManager.Instance.Passenger);
+            //GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.Money - GameManager.Instance.Money);
+            StartCoroutine(NextLevel(moneyMultiplierManager._showDuration + 3f));
         }
     }
-    private IEnumerator NextLevel(float time) {
+    private IEnumerator NextLevel(float time)
+    {
         yield return new WaitForSeconds(time);
         GameManager.Instance.NextLevel();
     }
-    private void LoseLevel() {
-        if (GameManager.Instance.IsLose) {
+    private void LoseLevel()
+    {
+        if (GameManager.Instance.IsLose && !_isEnd)
+        {
             touchThreshold = 0;
             horizontalSpeed = 0;
             horizontalMoveMultiplier = 0;
@@ -125,15 +141,18 @@ public class BusController : MonoBehaviour {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
-    public void StartBus() {
+    public void StartBus()
+    {
         GameManager.Instance.IsGameStarted = true;
     }
-    public static IEnumerator ChangeObjectZandXPos(Transform transform, float z_target, float x_target, float duration) {
+    public static IEnumerator ChangeObjectZandXPos(Transform transform, float z_target, float x_target, float duration)
+    {
         float elapsed_time = 0; //Elapsed time
         Vector3 pos = transform.position; //Start object's position
         float z_start = pos.z; //Start "y" value
         float x_start = pos.x; //Start "y" value
-        while (elapsed_time <= duration){ //Inside the loop until the time expires
+        while (elapsed_time <= duration)
+        { //Inside the loop until the time expires
             pos.z = Mathf.Lerp(z_start, z_target, EaseOut(elapsed_time / duration)); //Changes and interpolates the position's "y" value
             pos.x = Mathf.Lerp(x_start, x_target, EaseOut(elapsed_time / duration));
             transform.position = pos;//Changes the object's position
@@ -141,10 +160,12 @@ public class BusController : MonoBehaviour {
             elapsed_time += Time.deltaTime; //Adds to the elapsed time the amount of time needed to skip/wait one frame
         }
     }
-    static float Flip(float x) {
+    static float Flip(float x)
+    {
         return 1 - x;
     }
-    public static float EaseOut(float t) {
+    public static float EaseOut(float t)
+    {
         return Flip(Mathf.Pow(Flip(t), 2));
     }
 }

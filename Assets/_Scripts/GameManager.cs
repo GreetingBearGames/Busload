@@ -113,9 +113,12 @@ public class GameManager : MonoBehaviour
     }
     public void LoseLevel()
     {               //Call this when player can't finish the game successfully.
-        gameOverCanvas.gameObject.SetActive(true);
-        SoundManager.instance.Play("Game Over");
-        _isLose = true;
+        if (!_isWin)
+        {
+            gameOverCanvas.gameObject.SetActive(true);
+            SoundManager.instance.Play("Game Over");
+            _isLose = true;
+        }
     }
     public void UpdateBusHealth(int updateAmount)
     {   //To update health.Use positive value to increment. Use negative value to decrement.

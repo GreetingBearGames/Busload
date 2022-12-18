@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Cevo_Scene.unity
-    guid: 419eb8938fbb74fc6b5bd246188a61e8
-  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 0acd03780f522a04982eea3793f7f475
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 3467986f9af3645748d87a27b5120e7c
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 5626e2dcf6d8546e4942e52377c9fd89
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: 7676cd2d236a541d69846c102d2a238d
   m_configObjects: {}
