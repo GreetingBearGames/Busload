@@ -1,37 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class BusController : MonoBehaviour
-{
-    [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed;
-    [SerializeField] private GameObject groundObj, finishLine;
+public class BusController : MonoBehaviour {
+    [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed, finishSpeed;
+    [SerializeField] private GameObject groundObj;
     [SerializeField] private BusProps busProps = null;
-    [SerializeField] private MoneyMultiplier moneyMultiplierManager;
-
-    private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene, f = 0, _busBoundsZ, startTime;
+    private List<GameObject> finishMultiplier;
+    private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene;
     private bool _isEnd = false, _isContinue = true, _isFinish = false;
-    private Vector3 _horizontalMove, afterFinishMove, startPos;
+    private Vector3 _horizontalMove, startPos;
     private Touch _touch;
-    private int frames = 5, maxFrames = 180;
-    public AnimationCurve curve;
 
-    private void Start()
-    {
+    private void Start() {
+        var finishMultiplierArr = GameObject.FindGameObjectsWithTag("FinishMultiplier");
+        finishMultiplier = finishMultiplierArr.ToList().OrderBy(x => x.transform.position.z).ToList();
         var chassis = GameObject.FindGameObjectWithTag("Chassis");
         _groundBoundsX = groundObj.GetComponent<Renderer>().bounds.size.x;
         _busBoundsX = chassis.GetComponent<Renderer>().bounds.size.x;
-        //_busBoundsZ = chassis.GetComponent<Renderer>().bounds.size.z - chassis.transform.localPosition.z;
-        _busBoundsZ = GetComponent<Collider>().bounds.size.z;
         forwardSpeed = busProps.forwardSpeed;
         touchThreshold = busProps.touchThreshold;
         horizontalSpeed = busProps.horizontalSpeed;
         horizontalMoveMultiplier = busProps.horizontalMoveMultiplier;
         rotateSpeed = busProps.rotateSpeed;
         rotateBackToSpeed = busProps.rotateBackToSpeed;
+        finishSpeed = busProps.finishSpeed;
         _humanCountinScene = GameObject.FindGameObjectsWithTag("Human").Length;
-        finishLine = GameObject.FindGameObjectWithTag("FinishLine");
-        startTime = Time.time;
     }
     private void Update()
     {
@@ -93,42 +88,34 @@ public class BusController : MonoBehaviour
             var decreaseRate = GameManager.Instance.Passenger / (_humanCountinScene * GameManager.Instance.PassengerIncreaseRate);
             decreaseRate *= 20;
             if (decreaseRate == 0) decreaseRate = 1;
-            var targetPos = GameObject.FindGameObjectsWithTag("FinishMultiplier")[(int)decreaseRate - 1].transform.position;
+
+            var targetPos = finishMultiplier[(int)decreaseRate - 1].transform.position;
             targetPos = new Vector3(targetPos.x, transform.position.y, targetPos.z);
             GameManager.Instance.FinishMultiplier = (int)decreaseRate;
             forwardSpeed = 0;
-            if (!_isFinish)
-            {
+            if (!_isFinish) {
                 startPos = transform.position;
                 _isFinish = true;
             }
-            Vector3 velocity = Vector3.zero;
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, 0.05f, 100);
-            if (_isContinue && Mathf.Abs(transform.position.z - targetPos.z) < 0.2f)
-            {
+            StartCoroutine(ChangeObjectZandXPos(transform, targetPos.z, targetPos.x, decreaseRate / finishSpeed));
+            if (_isContinue && transform.position.z == targetPos.z) {
                 _isEnd = true;
                 _isContinue = false;
             }
 
         }
-        if (_isEnd && !GameManager.Instance.IsLose)
-        {
+        if (_isEnd && !GameManager.Instance.IsLose) {
             _isEnd = false;
-            GameManager.Instance.EndLevel();
-            moneyMultiplierManager.CreateMoney(GameManager.Instance.Passenger);
-            //GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.Money - GameManager.Instance.Money);
-            StartCoroutine(NextLevel(moneyMultiplierManager._showDuration + 2f));
+            GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.Money - GameManager.Instance.Money);
+            StartCoroutine(NextLevel(3.0f));
         }
     }
-    private IEnumerator NextLevel(float time)
-    {
+    private IEnumerator NextLevel(float time) {
         yield return new WaitForSeconds(time);
         GameManager.Instance.NextLevel();
     }
-    private void LoseLevel()
-    {
-        if (GameManager.Instance.IsLose)
-        {
+    private void LoseLevel() {
+        if (GameManager.Instance.IsLose) {
             touchThreshold = 0;
             horizontalSpeed = 0;
             horizontalMoveMultiplier = 0;
@@ -138,9 +125,26 @@ public class BusController : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
-
-    public void StartBus()
-    {
+    public void StartBus() {
         GameManager.Instance.IsGameStarted = true;
+    }
+    public static IEnumerator ChangeObjectZandXPos(Transform transform, float z_target, float x_target, float duration) {
+        float elapsed_time = 0; //Elapsed time
+        Vector3 pos = transform.position; //Start object's position
+        float z_start = pos.z; //Start "y" value
+        float x_start = pos.x; //Start "y" value
+        while (elapsed_time <= duration){ //Inside the loop until the time expires
+            pos.z = Mathf.Lerp(z_start, z_target, EaseOut(elapsed_time / duration)); //Changes and interpolates the position's "y" value
+            pos.x = Mathf.Lerp(x_start, x_target, EaseOut(elapsed_time / duration));
+            transform.position = pos;//Changes the object's position
+            yield return null; //Waits/skips one frame
+            elapsed_time += Time.deltaTime; //Adds to the elapsed time the amount of time needed to skip/wait one frame
+        }
+    }
+    static float Flip(float x) {
+        return 1 - x;
+    }
+    public static float EaseOut(float t) {
+        return Flip(Mathf.Pow(Flip(t), 2));
     }
 }

@@ -18,4 +18,4 @@ MonoBehaviour:
   horizontalMoveMultiplier: 35
   rotateSpeed: 0.1
   rotateBackToSpeed: 0.15
-  passengerLostRateByHit: 2
+  finishSpeed: 5
