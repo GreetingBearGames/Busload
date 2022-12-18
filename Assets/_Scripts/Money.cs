@@ -28,6 +28,7 @@ public class Money : MonoBehaviour
         {
             Explode();
             SoundManager.instance.Play("MoneyCollect");
+            GameManager.Instance.MoneyCountPerLevel += GameManager.Instance.MoneyIncreaseRate;
             GameManager.Instance.UpdateMoney(GameManager.Instance.MoneyIncreaseRate);
             _moneyCount.text = ((int)GameManager.Instance.Money).ToString();
             Destroy(this.gameObject);

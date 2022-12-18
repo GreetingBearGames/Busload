@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Canvas gameOverCanvas;
     private int _health, _totalHealth, _finishMultiplier;
-    private float _passenger, _passengerIncreaseRate = 1, _money, _moneyIncreaseRate = 1;
+    private float _passenger, _passengerIncreaseRate = 1, _money, _moneyIncreaseRate = 1, _moneyCountPerLevel;
     private static GameManager _instance;   //Create instance and make it static to be sure that only one instance exist in scene.
     private bool _isGameOver = false, _isWin = false, _isLose = false, _isGameStarted = false;
     public static GameManager Instance
@@ -64,9 +64,18 @@ public class GameManager : MonoBehaviour
         get => _moneyIncreaseRate;
         set => _moneyIncreaseRate = value;
     }
+    public float MoneyCountPerLevel
+    {       //Passenger property. You can get passenger from outside this script, but you can only set in this script.
+        get => _moneyCountPerLevel;
+        set => _moneyCountPerLevel = value;
+    }
     private void Awake()
     {
         _instance = this;
+
+        _money = PlayerPrefs.GetFloat("MoneyAmount", 0f);
+        _passengerIncreaseRate = PlayerPrefs.GetFloat("PassengerParameter", 1f);
+        _moneyIncreaseRate = PlayerPrefs.GetFloat("MoneyParameter", 1f);
     }
 
     public void GameOver(bool flag)
@@ -109,6 +118,10 @@ public class GameManager : MonoBehaviour
     }
     public void NextLevel()
     {
+        PlayerPrefs.SetFloat("MoneyAmount", _money);
+        PlayerPrefs.SetFloat("PassengerParameter", _passengerIncreaseRate);
+        PlayerPrefs.SetFloat("MoneyParameter", _moneyIncreaseRate);
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void LoseLevel()

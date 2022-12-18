@@ -7,14 +7,23 @@ public class ShopMenuButtons : MonoBehaviour
 {
     public Button passengerButton, incomeButton;
     public TextMeshProUGUI IncomeLvText, PassengerLvText, IncomeBuyValueText, PassengerBuyValueText;
-    public int incomeBuyValue, passengerBuyValue, incomeLv, passengerLv;
+    public float incomeBuyValue, passengerBuyValue, incomeLv, passengerLv;
+
+    private void Awake()
+    {
+        passengerLv = PlayerPrefs.GetFloat("PassengerLevel", 1f);
+        incomeLv = PlayerPrefs.GetFloat("MoneyLevel", 1f);
+        IncomeLvText.text = ((int)incomeLv).ToString();
+        PassengerLvText.text = ((int)passengerLv).ToString();
+    }
 
     private void Start()
     {
-        incomeBuyValue = 20;
-        passengerBuyValue = 20;
-        IncomeLvText.text = "0";
-        PassengerLvText.text = "0";
+        incomeBuyValue = 20 * GameManager.Instance.PassengerIncreaseRate;
+        passengerBuyValue = 20 * GameManager.Instance.PassengerIncreaseRate;
+
+        IncomeBuyValueText.text = ((int)(incomeBuyValue)).ToString();
+        IncomeBuyValueText.text = ((int)(passengerBuyValue)).ToString();
     }
     private void Update()
     {
@@ -50,20 +59,23 @@ public class ShopMenuButtons : MonoBehaviour
     {
         GameManager.Instance.UpdateMoney(-incomeBuyValue);
         incomeLv++;
+        PlayerPrefs.SetFloat("MoneyLevel", incomeLv);
         incomeBuyValue *= incomeLv;
         GameManager.Instance.MoneyIncreaseRate *= 1.25f;
-        IncomeLvText.text = (int.Parse(IncomeLvText.text) + 1).ToString();
+        IncomeBuyValueText.text = ((int)(incomeBuyValue)).ToString();
         SoundManager.instance.Play("Button Sound");
-
+        IncomeLvText.text = ((int)incomeLv).ToString();
     }
 
     public void PassengerUpgrade()
     {
         GameManager.Instance.UpdateMoney(-passengerBuyValue);
         passengerLv++;
+        PlayerPrefs.SetFloat("PassengerLevel", passengerLv);
         passengerBuyValue *= passengerLv;
         GameManager.Instance.PassengerIncreaseRate *= 1.25f;
-        PassengerLvText.text = (int.Parse(PassengerLvText.text) + 1).ToString();
+        PassengerBuyValueText.text = ((int)(passengerBuyValue)).ToString();
         SoundManager.instance.Play("Button Sound");
+        PassengerLvText.text = ((int)passengerLv).ToString();
     }
 }

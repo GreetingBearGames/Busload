@@ -95,13 +95,14 @@ public class BusController : MonoBehaviour
 
             var targetPos = finishMultiplier[(int)decreaseRate - 1].transform.position;
             targetPos = new Vector3(targetPos.x, transform.position.y, targetPos.z);
-            GameManager.Instance.FinishMultiplier = (int)decreaseRate;
             forwardSpeed = 0;
             if (!_isFinish)
             {
                 startPos = transform.position;
                 _isFinish = true;
+                GameManager.Instance.FinishMultiplier = (int)decreaseRate;
             }
+
             if (!_isStop)
             {
                 StartCoroutine(ChangeObjectZandXPos(transform, targetPos.z, targetPos.x, decreaseRate / finishSpeed));
@@ -118,7 +119,7 @@ public class BusController : MonoBehaviour
         {
             _isEnd = false;
             GameManager.Instance.EndLevel();
-            moneyMultiplierManager.CreateMoney(GameManager.Instance.Passenger);
+            moneyMultiplierManager.CreateMoney(GameManager.Instance.MoneyCountPerLevel);
             //GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.Money - GameManager.Instance.Money);
             StartCoroutine(NextLevel(moneyMultiplierManager._showDuration + 3f));
         }
