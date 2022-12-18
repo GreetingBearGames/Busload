@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.2819755, y: 1, z: 0.4485056}
-  m_Center: {x: 0.083610736, y: 0, z: 4.0300026}
+  m_Size: {x: 2.6311116, y: 2.9745705, z: 0.4485056}
+  m_Center: {x: 0.067741804, y: -0.4129253, z: 4.0300026}
 --- !u!1 &729512657899290004
 GameObject:
   m_ObjectHideFlags: 0
@@ -10146,6 +10146,7 @@ MonoBehaviour:
   groundObj: {fileID: 0}
   finishLine: {fileID: 0}
   busProps: {fileID: 11400000, guid: 87ae6efdcbb7f40468ed555ba81e7692, type: 2}
+  moneyMultiplierManager: {fileID: 0}
   curve:
     serializedVersion: 2
     m_Curve:
