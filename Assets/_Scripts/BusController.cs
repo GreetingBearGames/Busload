@@ -1,39 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BusController : MonoBehaviour {
-    [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed;
-    [SerializeField] private GameObject groundObj, finishLine;
-    private GameObject[] finishMultiplier;
+    [SerializeField] private float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed, finishSpeed;
+    [SerializeField] private GameObject groundObj;
     [SerializeField] private BusProps busProps = null;
-
-    private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene, f = 0, _busBoundsZ, _currentLerpTime, _totalLerpTime;
+    private List<GameObject> finishMultiplier;
+    private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene;
     private bool _isEnd = false, _isContinue = true, _isFinish = false;
-    private Vector3 _horizontalMove, afterFinishMove, startPos;
+    private Vector3 _horizontalMove, startPos;
     private Touch _touch;
-    private float startTime = 0, journeyLength;
-    public AnimationCurve curve;
-    private void Awake() {
-        var finishMultiplier = GameObject.FindGameObjectsWithTag("FinishMultiplier");
-    }
 
     private void Start() {
+        var finishMultiplierArr = GameObject.FindGameObjectsWithTag("FinishMultiplier");
+        finishMultiplier = finishMultiplierArr.ToList().OrderBy(x => x.transform.position.z).ToList();
         var chassis = GameObject.FindGameObjectWithTag("Chassis");
         _groundBoundsX = groundObj.GetComponent<Renderer>().bounds.size.x;
         _busBoundsX = chassis.GetComponent<Renderer>().bounds.size.x;
-        //_busBoundsZ = chassis.GetComponent<Renderer>().bounds.size.z - chassis.transform.localPosition.z;
-        _busBoundsZ = GetComponent<Collider>().bounds.size.z;
         forwardSpeed = busProps.forwardSpeed;
         touchThreshold = busProps.touchThreshold;
         horizontalSpeed = busProps.horizontalSpeed;
         horizontalMoveMultiplier = busProps.horizontalMoveMultiplier;
         rotateSpeed = busProps.rotateSpeed;
         rotateBackToSpeed = busProps.rotateBackToSpeed;
+        finishSpeed = busProps.finishSpeed;
         _humanCountinScene = GameObject.FindGameObjectsWithTag("Human").Length;
-        finishLine = GameObject.FindGameObjectWithTag("FinishLine");
-        startTime = Time.time;
-        _totalLerpTime = 1.0f;
     }
     private void Update() {
         MoveForward();
@@ -84,25 +77,17 @@ public class BusController : MonoBehaviour {
             var decreaseRate = GameManager.Instance.Passenger / (_humanCountinScene * GameManager.Instance.PassengerIncreaseRate);
             decreaseRate *= 20;
             if (decreaseRate == 0) decreaseRate = 1;
+
             var targetPos = finishMultiplier[(int)decreaseRate - 1].transform.position;
             targetPos = new Vector3(targetPos.x, transform.position.y, targetPos.z);
             GameManager.Instance.FinishMultiplier = (int)decreaseRate;
             forwardSpeed = 0;
             if (!_isFinish) {
-                startTime = Time.time;
                 startPos = transform.position;
                 _isFinish = true;
-                journeyLength = Vector3.Distance(startPos, targetPos);
             }
-            float distCovered = (Time.time - startTime) * 50f;
-            // Fraction of journey completed equals current distance divided by total distance.
-            float fractionOfJourney = distCovered / journeyLength;
-
-            // Set our position as a fraction of the distance between the markers.
-            Debug.Log("Start : " + startPos + " target : " + targetPos);
-            transform.position = Vector3.Lerp(startPos, targetPos, fractionOfJourney);
-            //transform.position = Vector3.Lerp(startPos, targetPos, 0.5f);
-            if (_isContinue && Mathf.Abs(transform.position.z - targetPos.z) < 0.2f) {
+            StartCoroutine(ChangeObjectZandXPos(transform, targetPos.z, targetPos.x, decreaseRate / finishSpeed));
+            if (_isContinue && transform.position.z == targetPos.z) {
                 _isEnd = true;
                 _isContinue = false;
             }
@@ -129,12 +114,26 @@ public class BusController : MonoBehaviour {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
-
     public void StartBus() {
         GameManager.Instance.IsGameStarted = true;
     }
-    private float SmoothStop(float t) {
-        float time = 1 - (1 - t * t * t * t * t);
-        return time;
+    public static IEnumerator ChangeObjectZandXPos(Transform transform, float z_target, float x_target, float duration) {
+        float elapsed_time = 0; //Elapsed time
+        Vector3 pos = transform.position; //Start object's position
+        float z_start = pos.z; //Start "y" value
+        float x_start = pos.x; //Start "y" value
+        while (elapsed_time <= duration){ //Inside the loop until the time expires
+            pos.z = Mathf.Lerp(z_start, z_target, EaseOut(elapsed_time / duration)); //Changes and interpolates the position's "y" value
+            pos.x = Mathf.Lerp(x_start, x_target, EaseOut(elapsed_time / duration));
+            transform.position = pos;//Changes the object's position
+            yield return null; //Waits/skips one frame
+            elapsed_time += Time.deltaTime; //Adds to the elapsed time the amount of time needed to skip/wait one frame
+        }
+    }
+    static float Flip(float x) {
+        return 1 - x;
+    }
+    public static float EaseOut(float t) {
+        return Flip(Mathf.Pow(Flip(t), 2));
     }
 }

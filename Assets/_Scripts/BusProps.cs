@@ -6,5 +6,5 @@ using UnityEngine;
 
 public class BusProps : ScriptableObject
 {
-    public float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed;
+    public float forwardSpeed, touchThreshold, horizontalSpeed, horizontalMoveMultiplier, rotateSpeed, rotateBackToSpeed, finishSpeed;
 }
