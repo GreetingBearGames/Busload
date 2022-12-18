@@ -24,6 +24,8 @@ public class BusGetOn : MonoBehaviour
     {
         if (other.gameObject.tag == "Bus")
         {
+            SoundManager.instance.Play("Take Passenger");
+
             foreach (HumanMove child in _humanMoveScripts)
             {
                 child.isMoving = true;

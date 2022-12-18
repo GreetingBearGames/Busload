@@ -45,7 +45,6 @@ public class HumanMove : MonoBehaviour
 
         if (other.gameObject.tag == "Bus")
         {
-            SoundManager.instance.Play("Take Passenger");
             GameManager.Instance.UpdatePassengerCount(GameManager.Instance.PassengerIncreaseRate);
             _passengerCount.text = ((int)GameManager.Instance.Passenger).ToString();
             Destroy(this.gameObject);

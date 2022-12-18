@@ -9,7 +9,7 @@ public class HumanLook : MonoBehaviour
     private void Start()
     {
         _target = GameObject.FindWithTag("Bus").gameObject;
-        //InvokeRepeating("RotateTowardsBus", 0.2f, 0.05f);
+        InvokeRepeating("RotateTowardsBus", 0.2f, 0.05f);
     }
 
 
