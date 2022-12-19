@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PassengerCount : MonoBehaviour
 {
-    [SerializeField] GameObject _bus;
+    [SerializeField] private GameObject _bus;
+    [SerializeField] private MoneyMultiplier moneyMultiplierManager;
     private float _screenWidth;
 
     private void Start()

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Canvas gameOverCanvas;
-    private int _health, _totalHealth, _finishMultiplier;
+    private int _health, _totalHealth, _finishMultiplier, _savedLevel;
     private float _passenger, _passengerIncreaseRate = 1, _money, _moneyIncreaseRate = 1, _moneyCountPerLevel;
     private static GameManager _instance;   //Create instance and make it static to be sure that only one instance exist in scene.
     private bool _isGameOver = false, _isWin = false, _isLose = false, _isGameStarted = false;
@@ -69,6 +69,11 @@ public class GameManager : MonoBehaviour
         get => _moneyCountPerLevel;
         set => _moneyCountPerLevel = value;
     }
+    public int SavedLevel
+    {       //Passenger property. You can get passenger from outside this script, but you can only set in this script.
+        get => _savedLevel;
+        set => _savedLevel = value;
+    }
     private void Awake()
     {
         _instance = this;
@@ -76,6 +81,7 @@ public class GameManager : MonoBehaviour
         _money = PlayerPrefs.GetFloat("MoneyAmount", 0f);
         _passengerIncreaseRate = PlayerPrefs.GetFloat("PassengerParameter", 1f);
         _moneyIncreaseRate = PlayerPrefs.GetFloat("MoneyParameter", 1f);
+        _savedLevel = PlayerPrefs.GetInt("SavedLeved", 1);
     }
 
     public void GameOver(bool flag)
@@ -86,14 +92,14 @@ public class GameManager : MonoBehaviour
     {          //To check is game over
         return _isGameOver;
     }
-    public void OnRestartButtonClicked()
-    {          //Restart Button Clicked
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-    public void LoadNextLevel()
-    {                   //Loads Next Level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+    // public void OnRestartButtonClicked()
+    // {          //Restart Button Clicked
+    //     LevelLoader.Current.ChangeLevel("Level " + PlayerPrefs.GetInt("SavedLeved"));    //aynı bölümü tekrar yükle
+    // }
+    // public void LoadNextLevel()
+    // {                   //Loads Next Level
+    //     LevelLoader.Current.ChangeLevel("Level " + PlayerPrefs.GetInt("SavedLeved")); //SavedLeved pref'i güncellendiydi zaten.
+    // }
     public void UpdateMoney(float updateAmount)
     {     //To update money.Use positive value to increment. Use negative value to decrement.
         _money += updateAmount;
@@ -121,8 +127,9 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("MoneyAmount", _money);
         PlayerPrefs.SetFloat("PassengerParameter", _passengerIncreaseRate);
         PlayerPrefs.SetFloat("MoneyParameter", _moneyIncreaseRate);
+        PlayerPrefs.SetInt("SavedLeved", _savedLevel + 1);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        LevelLoader.Current.ChangeLevel("Level " + PlayerPrefs.GetInt("SavedLeved")); //SavedLeved pref'i güncellendiydi zaten.
     }
     public void LoseLevel()
     {               //Call this when player can't finish the game successfully.
