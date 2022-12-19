@@ -34,6 +34,11 @@ public class LevelLoader : MonoBehaviour
 
     public void ChangeLevel(string sceneName)
     {
+        if (PlayerPrefs.GetInt("SavedLeved") == 5)
+        {
+            PlayerPrefs.SetInt("SavedLeved", 1);
+            sceneName = "Level " + PlayerPrefs.GetInt("SavedLeved");
+        }
         StartCoroutine(ChangeScene(sceneName));
     }
 
@@ -61,6 +66,7 @@ public class LevelLoader : MonoBehaviour
             isSceneLoaded = lastLoadedScene != null && lastLoadedScene.isLoaded;
             yield return new WaitForEndOfFrame();   //her oyun döngüsünün sonuna kadar bekler. Aksi halde oyun sonsuz döngüye girer.
         }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
         //---------------------------------------------------
     }
 }

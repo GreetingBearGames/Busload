@@ -93,10 +93,9 @@ public class BusController : MonoBehaviour
             var decreaseRate = GameManager.Instance.Passenger / (_humanCountinScene * GameManager.Instance.PassengerIncreaseRate);
             decreaseRate *= 20;
             if (decreaseRate < 1) decreaseRate = 1;
-            Debug.Log("Decrease Rate : " + decreaseRate);
             var targetPos = finishMultiplier[(int)decreaseRate - 1].transform.position;
             targetPos = new Vector3(targetPos.x, transform.position.y, targetPos.z);
-            
+
             forwardSpeed = 0;
             if (!_isFinish)
             {
