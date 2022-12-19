@@ -24,10 +24,10 @@ public class FinishMoneyToUI : MonoBehaviour
         _screenPoint = _moneyUI.transform.position + new Vector3(-200, 0, 5);  //the "+ new Vector3(0,0,5)" ensures that the object is so close to the camera you dont see it
         _targetPos = Camera.main.ScreenToWorldPoint(_screenPoint);
 
-        //finish hediye para prefabı doğduğu an yolcu sayısını düşür
-        GameManager.Instance.UpdatePassengerCount(-1);
-        _passengerCountUI.GetComponent<TextMeshProUGUI>().text = ((int)GameManager.Instance.Passenger).ToString();
-
+        // //finish hediye para prefabı doğduğu an yolcu sayısını düşür
+        // var passengerDecreaseAmount = GameManager.Instance.Passenger / GameManager.Instance.MoneyCountPerLevel;
+        // GameManager.Instance.UpdatePassengerCount(-passengerDecreaseAmount);
+        // _passengerCountUI.GetComponent<TextMeshProUGUI>().text = ((int)GameManager.Instance.Passenger).ToString();
     }
 
 

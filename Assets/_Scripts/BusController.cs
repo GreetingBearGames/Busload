@@ -9,6 +9,7 @@ public class BusController : MonoBehaviour
     [SerializeField] private GameObject groundObj;
     [SerializeField] private BusProps busProps = null;
     [SerializeField] private MoneyMultiplier moneyMultiplierManager;
+    [SerializeField] private GameObject _speedLight;
     private List<GameObject> finishMultiplier;
     private float _deltaPosX, _groundBoundsX, _busBoundsX, _humanCountinScene;
     private bool _isEnd = false, _isContinue = true, _isFinish = false, _isStop = false;
@@ -120,6 +121,7 @@ public class BusController : MonoBehaviour
         {
             _isEnd = false;
             GameManager.Instance.EndLevel();
+            _speedLight.SetActive(false);
             moneyMultiplierManager.CreateMoney(GameManager.Instance.MoneyCountPerLevel);
             //GameManager.Instance.UpdateMoney(GameManager.Instance.FinishMultiplier * GameManager.Instance.Money - GameManager.Instance.Money);
             StartCoroutine(NextLevel(moneyMultiplierManager._showDuration + 3f));

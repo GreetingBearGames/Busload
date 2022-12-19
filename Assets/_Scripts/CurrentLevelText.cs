@@ -5,10 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class CurrentLevelText : MonoBehaviour{
+public class CurrentLevelText : MonoBehaviour
+{
     public TextMeshProUGUI currentLevelText;
-    private void Awake() {
-        var currentLevel = SceneManager.GetActiveScene().buildIndex + 1;
+    private void Start()
+    {
+        var currentLevel = GameManager.Instance.SavedLevel;
         currentLevelText.text = currentLevel.ToString();
     }
 }
