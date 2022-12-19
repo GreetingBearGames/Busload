@@ -15,15 +15,14 @@ public class ShopMenuButtons : MonoBehaviour
         incomeLv = PlayerPrefs.GetFloat("MoneyLevel", 1f);
         IncomeLvText.text = ((int)incomeLv).ToString();
         PassengerLvText.text = ((int)passengerLv).ToString();
+        incomeBuyValue = PlayerPrefs.GetFloat("IncomeBuyValue", 20);
+        passengerBuyValue = PlayerPrefs.GetFloat("PassengerBuyValue", 20);
     }
 
     private void Start()
     {
-        incomeBuyValue = 20 * GameManager.Instance.PassengerIncreaseRate;
-        passengerBuyValue = 20 * GameManager.Instance.PassengerIncreaseRate;
-
         IncomeBuyValueText.text = ((int)(incomeBuyValue)).ToString();
-        IncomeBuyValueText.text = ((int)(passengerBuyValue)).ToString();
+        PassengerBuyValueText.text = ((int)(passengerBuyValue)).ToString();
     }
     private void Update()
     {
@@ -65,6 +64,7 @@ public class ShopMenuButtons : MonoBehaviour
         IncomeBuyValueText.text = ((int)(incomeBuyValue)).ToString();
         SoundManager.instance.Play("Button Sound");
         IncomeLvText.text = ((int)incomeLv).ToString();
+        PlayerPrefs.SetFloat("IncomeBuyValue", incomeBuyValue);
     }
 
     public void PassengerUpgrade()
@@ -77,5 +77,6 @@ public class ShopMenuButtons : MonoBehaviour
         PassengerBuyValueText.text = ((int)(passengerBuyValue)).ToString();
         SoundManager.instance.Play("Button Sound");
         PassengerLvText.text = ((int)passengerLv).ToString();
+        PlayerPrefs.SetFloat("PassengerBuyValue", passengerBuyValue);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MoneyMultiplier : MonoBehaviour
 {
@@ -31,7 +32,8 @@ public class MoneyMultiplier : MonoBehaviour
         _creationPos = GameObject.FindWithTag("Bus").gameObject.transform.position;
         for (int i = 0; i < count; i++)
         {
-            Instantiate(_moneyToUIPrefab, _creationPos, Quaternion.Euler(40f, 0f, 0f));
+            var obj = Instantiate(_moneyToUIPrefab, _creationPos, Quaternion.Euler(40f, 0f, 0f));
+            SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName("Level " + GameManager.Instance.SavedLevel));
             yield return new WaitForSeconds(_showDuration / count);
         }
     }

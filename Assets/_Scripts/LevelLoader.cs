@@ -66,7 +66,6 @@ public class LevelLoader : MonoBehaviour
             isSceneLoaded = lastLoadedScene != null && lastLoadedScene.isLoaded;
             yield return new WaitForEndOfFrame();   //her oyun döngüsünün sonuna kadar bekler. Aksi halde oyun sonsuz döngüye girer.
         }
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
         //---------------------------------------------------
     }
 }
