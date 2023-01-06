@@ -34,10 +34,13 @@ public class LevelLoader : MonoBehaviour
 
     public void ChangeLevel(string sceneName)
     {
-        if (PlayerPrefs.GetInt("SavedLeved") == 5)
+        if (PlayerPrefs.GetInt("SavedLeved") % 4 == 0)
         {
-            PlayerPrefs.SetInt("SavedLeved", 1);
-            sceneName = "Level " + PlayerPrefs.GetInt("SavedLeved");
+            sceneName = "Level " + 1;
+        }
+        else
+        {
+            sceneName = "Level " + PlayerPrefs.GetInt("SavedLeved") % 4;
         }
         StartCoroutine(ChangeScene(sceneName));
     }

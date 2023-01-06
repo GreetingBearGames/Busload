@@ -33,7 +33,7 @@ public class MoneyMultiplier : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var obj = Instantiate(_moneyToUIPrefab, _creationPos, Quaternion.Euler(40f, 0f, 0f));
-            SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName("Level " + GameManager.Instance.SavedLevel));
+            Destroy(obj, 3);
             yield return new WaitForSeconds(_showDuration / count);
         }
     }

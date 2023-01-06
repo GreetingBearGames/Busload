@@ -21,7 +21,7 @@ public class PassengerLose : MonoBehaviour
         for (int i = 0; i < passengerToLose; i++)
         {
             var obj = Instantiate(passenger, new Vector3(transform.position.x, transform.position.y, transform.position.z + _busBoundsZ / 2), Quaternion.identity);
-            SceneManager.MoveGameObjectToScene(obj, SceneManager.GetSceneByName("Level " + GameManager.Instance.SavedLevel));
+            Destroy(obj, 2);
         }
     }
     private void FixedUpdate()
