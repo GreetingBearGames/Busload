@@ -13,9 +13,4 @@ public class NextLevelText : MonoBehaviour
         var currentLevel = GameManager.Instance.SavedLevel + 1;
         currentLevelText.text = currentLevel.ToString();
     }
-
-    private void Update()
-    {
-        Debug.Log(PlayerPrefs.GetInt("SavedLeved"));
-    }
 }

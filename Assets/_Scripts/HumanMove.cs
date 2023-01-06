@@ -7,6 +7,7 @@ using TMPro;
 public class HumanMove : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
+    private AllPassengerDie _allPassengerDieScript;
     private TextMeshProUGUI _passengerCount = null;
     private GameObject _target;
     private Vector3 _targetPos;
@@ -16,6 +17,7 @@ public class HumanMove : MonoBehaviour
     {
         _target = GameObject.FindWithTag("Bus").gameObject;
         _passengerCount = GameObject.FindWithTag("PassengerCount").gameObject.GetComponent<TextMeshProUGUI>();
+        _allPassengerDieScript = this.transform.parent.GetComponentInChildren<AllPassengerDie>();
     }
 
 
@@ -45,8 +47,11 @@ public class HumanMove : MonoBehaviour
 
         if (other.gameObject.tag == "Bus")
         {
-            GameManager.Instance.UpdatePassengerCount(GameManager.Instance.PassengerIncreaseRate);
-            _passengerCount.text = ((int)GameManager.Instance.Passenger).ToString();
+            if (!_allPassengerDieScript.isBusFullyCrashed)
+            {
+                GameManager.Instance.UpdatePassengerCount(GameManager.Instance.PassengerIncreaseRate);
+                _passengerCount.text = ((int)GameManager.Instance.Passenger).ToString();
+            }
             Destroy(this.gameObject);
         }
     }

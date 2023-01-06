@@ -15,6 +15,7 @@ TagManager:
   - DiedHuman
   - FinishLine
   - Chassis
+  - AllPassengerDieAre
   layers:
   - Default
   - TransparentFX
