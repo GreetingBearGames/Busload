@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12729394, g: 0.1341429, b: 0.121147014, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -898,6 +898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish Multiplier (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
 --- !u!4 &172161384 stripped
@@ -1083,6 +1087,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x3
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (2)
@@ -1393,6 +1401,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 1307174174, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1246328986}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier
@@ -1765,7 +1777,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &302191000
 Transform:
   m_ObjectHideFlags: 0
@@ -2537,6 +2549,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish Multiplier (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4326579018725960472, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
 --- !u!4 &386706164 stripped
@@ -2983,6 +3007,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x5
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (4)
@@ -3454,6 +3482,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x9
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (8)
@@ -3945,6 +3977,76 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6808904392165173570, guid: 409bf0fb84dc142a8ae2b12a17437f51, type: 3}
   m_PrefabInstance: {fileID: 620056209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &621215778
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1040178567}
+    m_Modifications:
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2740341144075974109, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_Name
+      value: Finish Multiplier (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+--- !u!4 &621215779 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2740341144075974098, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+  m_PrefabInstance: {fileID: 621215778}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &627996227
 PrefabInstance:
@@ -5412,6 +5514,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x11
+      objectReference: {fileID: 0}
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_fontSize
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307174171, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (10)
@@ -5758,6 +5872,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x13
+      objectReference: {fileID: 0}
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307174171, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (12)
@@ -5868,6 +5994,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish Multiplier (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4326579018725960472, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_margin.x
+      value: -0.0010089874
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
 --- !u!4 &877138115 stripped
@@ -5882,6 +6024,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x17
+      objectReference: {fileID: 0}
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307174171, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (16)
@@ -6354,7 +6508,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0016fbf14f62c254e8fa7b9a2f3fe501, type: 2}
+  - {fileID: 2100000, guid: 009633d37313644599f448fc1da0efa2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6691,6 +6845,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish Multiplier (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4326579018725960472, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
 --- !u!4 &1006910200 stripped
@@ -6935,6 +7101,7 @@ Transform:
   - {fileID: 1871753687}
   - {fileID: 970314157}
   - {fileID: 2088098511}
+  - {fileID: 621215779}
   m_Father: {fileID: 775669326}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7152,6 +7319,10 @@ PrefabInstance:
     - target: {fileID: 2740341144075974109, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
@@ -9582,6 +9753,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish Multiplier (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4326579018725960472, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
 --- !u!4 &1589385629 stripped
@@ -10075,6 +10258,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x15
+      objectReference: {fileID: 0}
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307174171, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (14)
@@ -10290,6 +10485,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x19
+      objectReference: {fileID: 0}
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1307174171, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (18)
@@ -11402,6 +11609,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish Multiplier (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 4326579018725960472, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
 --- !u!4 &1871753687 stripped
@@ -11514,6 +11733,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1040178567}
     m_Modifications:
+    - target: {fileID: 833216029, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
+      propertyPath: m_text
+      value: x7
+      objectReference: {fileID: 0}
     - target: {fileID: 6644631662052763285, guid: 1447a630a46b54c05aa6a12baa61c27e, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (6)
@@ -12786,6 +13009,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Finish Multiplier (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4326579018725960472, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_fontSize
+      value: 1.85
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
 --- !u!4 &2109114874 stripped
@@ -12847,6 +13082,10 @@ PrefabInstance:
     - target: {fileID: 2740341144075974109, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
@@ -12971,6 +13210,14 @@ PrefabInstance:
     - target: {fileID: 2740341144075974109, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
       propertyPath: m_Name
       value: Finish Multiplier (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402042829701070838, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1246328986}
+    - target: {fileID: 4633820256188383142, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}
+      propertyPath: m_text
+      value: x2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85a34d7ad04b415aa8983621cc2512a, type: 3}

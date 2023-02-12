@@ -41,6 +41,5 @@ public class Money : MonoBehaviour
     {
         GameObject particle = Instantiate(_moneyTakeParticle, transform.position, new Quaternion(0f, 0f, 0f, 0f));
         particle.GetComponent<ParticleSystem>().Play();
-        SceneManager.MoveGameObjectToScene(particle, SceneManager.GetSceneByName("Level " + GameManager.Instance.SavedLevel));
     }
 }
